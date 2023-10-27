@@ -25,10 +25,10 @@ txt = "B"
 script = ExtResource( 1 )
 pos_next_rel = Vector2( 0, 0 )
 dir_next = Vector2( -1, -1 )
-arr_fn_gu = [ SubResource( 3 ), SubResource( 4 ) ]
+arr_rq_gu = [ SubResource( 3 ), SubResource( 4 ) ]
 
 [resource]
 script = ExtResource( 1 )
 pos_next_rel = Vector2( 1, 0 )
 dir_next = Vector2( 1, 1 )
-arr_fn_gu = [ SubResource( 2 ), SubResource( 1 ), SubResource( 5 ) ]
+arr_rq_gu = [ SubResource( 2 ), SubResource( 1 ), SubResource( 5 ) ]
