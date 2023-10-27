@@ -1,0 +1,34 @@
+[gd_resource type="Resource" load_steps=10 format=2]
+
+[ext_resource path="res://FnGuChain.gd" type="Script" id=1]
+[ext_resource path="res://FnGuFromImg.gd" type="Script" id=2]
+[ext_resource path="res://FnGuFromStr.gd" type="Script" id=3]
+[ext_resource path="res://icon.png" type="Texture" id=4]
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+txt = "One"
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 2 )
+tex = ExtResource( 4 )
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+txt = "A"
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 3 )
+txt = "B"
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 1 )
+pos_next_rel = Vector2( 0, 0 )
+dir_next = Vector2( -1, -1 )
+arr_fn_gu = [ SubResource( 3 ), SubResource( 4 ) ]
+
+[resource]
+script = ExtResource( 1 )
+pos_next_rel = Vector2( 1, 0 )
+dir_next = Vector2( 1, 1 )
+arr_fn_gu = [ SubResource( 2 ), SubResource( 1 ), SubResource( 5 ) ]
