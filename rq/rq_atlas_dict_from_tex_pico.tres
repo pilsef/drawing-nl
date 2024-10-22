@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource type="Script" path="res://fn/FnAtlasDictFromTex.gd" id="1"]
+[ext_resource type="Texture2D" uid="uid://dtjlmp7q6fe2f" path="res://tex/font-pico.png" id="2"]
+
+[resource]
+script = ExtResource( 1 )
+iterable_wrapper = [ " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~" ]
+size_cell = Vector2( 8, 8 )
+tex = ExtResource( 2 )

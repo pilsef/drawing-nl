@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="FnGuChainNested" load_steps=16 format=3 uid="uid://cqhikc1covocl"]
+
+[ext_resource type="Texture2D" uid="uid://ckpu3yvvwhk67" path="res://tex/polar-bear.png" id="1_f3w3n"]
+[ext_resource type="Texture2D" uid="uid://bw4sxjsv0q3c4" path="res://tex/monkey.png" id="2_vc5f3"]
+[ext_resource type="Texture2D" uid="uid://bwlto3x1rvg2h" path="res://tex/snake.png" id="3_6b7gq"]
+[ext_resource type="Script" path="res://fn/FnGuFromTex.gd" id="4_q1wg1"]
+[ext_resource type="Script" path="res://fn/Fn.gd" id="5_cc02l"]
+[ext_resource type="Script" path="res://fn/FnGuPadded.gd" id="6_386cw"]
+[ext_resource type="Script" path="res://fn/FnGuScaled.gd" id="7_tj0ye"]
+[ext_resource type="Script" path="res://fn/FnGuBackgrounded.gd" id="8_qu82d"]
+[ext_resource type="Script" path="res://fn/FnGuNested.gd" id="9_vqdkt"]
+[ext_resource type="Script" path="res://fn/FnGuChainNested.gd" id="10_7xx0u"]
+
+[sub_resource type="Resource" id="Resource_an4ok"]
+script = ExtResource("4_q1wg1")
+
+[sub_resource type="Resource" id="Resource_g2aao"]
+script = ExtResource("6_386cw")
+left_top = Vector2(10, 10)
+right_bottom = Vector2(10, 10)
+
+[sub_resource type="Resource" id="Resource_i3rkn"]
+script = ExtResource("7_tj0ye")
+scale = 4
+
+[sub_resource type="Resource" id="Resource_jwddm"]
+script = ExtResource("8_qu82d")
+color = Color(0, 0.440087, 0.678219, 1)
+
+[sub_resource type="Resource" id="Resource_cfwuq"]
+script = ExtResource("9_vqdkt")
+arr_rq_hierarchy = Array[ExtResource("5_cc02l")]([SubResource("Resource_g2aao"), SubResource("Resource_i3rkn"), SubResource("Resource_jwddm")])
+
+[resource]
+script = ExtResource("10_7xx0u")
+pos_next_rel = Vector2(1, 1)
+dir_next = Vector2(1, 1)
+arr_baselem = [ExtResource("1_f3w3n"), ExtResource("2_vc5f3"), ExtResource("3_6b7gq")]
+rq_base_template = SubResource("Resource_an4ok")
+rq_nested_template = SubResource("Resource_cfwuq")

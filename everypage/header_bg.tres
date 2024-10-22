@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="FnGuFromColor" load_steps=2 format=3 uid="uid://co5qqyh6w4dnr"]
+
+[ext_resource type="Script" path="res://fn/FnGuFromColor.gd" id="1_ox23e"]
+
+[resource]
+script = ExtResource("1_ox23e")
+color = Color(0, 0.613864, 0.301439, 1)
+size = Vector2(1100, 64)

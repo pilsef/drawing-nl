@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="FnGuScaled" load_steps=5 format=3 uid="uid://bm4p0vgcmrv26"]
+
+[ext_resource type="Resource" path="res://rq/rq_atlas_dict_from_tex_pico.tres" id="1_qj1qe"]
+[ext_resource type="Script" path="res://fn/FnGuFromAtlas.gd" id="2_nq8rh"]
+[ext_resource type="Script" path="res://fn/FnGuScaled.gd" id="3_ggp0p"]
+
+[sub_resource type="Resource" id="Resource_8jt21"]
+script = ExtResource("2_nq8rh")
+rq_dict_atlas = ExtResource("1_qj1qe")
+iterable_wrapper = ["everypage"]
+
+[resource]
+script = ExtResource("3_ggp0p")
+scale = 4
+rq_gu = SubResource("Resource_8jt21")

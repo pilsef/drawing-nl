@@ -1,0 +1,15 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource type="Script" path="res://fn/FnGuFromAtlas.gd" id="1"]
+[ext_resource type="Script" path="res://fn/FnGuScaled.gd" id="2"]
+[ext_resource type="Resource" path="res://rq/rq_atlas_dict_from_tex_pico.tres" id="3"]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+rq_dict_atlas = ExtResource( 3 )
+iterable_wrapper = [ "The quick brown fox" ]
+
+[resource]
+script = ExtResource( 2 )
+scale = 2
+rq_gu = SubResource( 1 )

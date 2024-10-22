@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="Windo" load_steps=12 format=3 uid="uid://dyd8mqo46uvi6"]
+
+[ext_resource type="Script" path="res://Windo.gd" id="1"]
+[ext_resource type="Script" path="res://RenderStep.gd" id="1_h0nqo"]
+[ext_resource type="Resource" uid="uid://co5qqyh6w4dnr" path="res://everypage/header_bg.tres" id="1_rpr6a"]
+[ext_resource type="Resource" uid="uid://bm4p0vgcmrv26" path="res://everypage/txt_everypage.tres" id="2_veoul"]
+[ext_resource type="Script" path="res://fn/FnGuChainPaddedScaledText.gd" id="3_1w004"]
+[ext_resource type="Script" path="res://fn/Fn.gd" id="3_tyad8"]
+[ext_resource type="Script" path="res://fn/FnGuTree.gd" id="4_lko3c"]
+
+[sub_resource type="Resource" id="Resource_teuw6"]
+script = ExtResource("1_h0nqo")
+rq_gu = ExtResource("2_veoul")
+pos_render = Vector2(0, 0.5)
+dir_render = Vector2(1, 0)
+
+[sub_resource type="Resource" id="Resource_d1taa"]
+script = ExtResource("3_1w004")
+arr_text = Array[String](["Try Now", "Tutorials", "Examples", "Blog"])
+arr_rq_hierarchy = Array[ExtResource("3_tyad8")]([])
+
+[sub_resource type="Resource" id="Resource_rqs6l"]
+script = ExtResource("1_h0nqo")
+rq_gu = SubResource("Resource_d1taa")
+pos_render = Vector2(1, 0.5)
+dir_render = Vector2(-1, 0)
+
+[sub_resource type="Resource" id="Resource_ktysp"]
+script = ExtResource("4_lko3c")
+rq_gu_root = ExtResource("1_rpr6a")
+arr_render_step = Array[ExtResource("1_h0nqo")]([SubResource("Resource_teuw6"), SubResource("Resource_rqs6l")])
+
+[resource]
+script = ExtResource("1")
+rq_gu = SubResource("Resource_ktysp")

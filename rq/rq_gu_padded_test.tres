@@ -1,0 +1,27 @@
+[gd_resource type="Resource" load_steps=7 format=2]
+
+[ext_resource type="Script" path="res://fn/FnGuPadded.gd" id="1"]
+[ext_resource type="Script" path="res://fn/FnGuBackgrounded.gd" id="2"]
+[ext_resource type="Script" path="res://fn/FnGuFromColor.gd" id="3"]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+color = Color( 0.580392, 0.0745098, 0.0745098, 1 )
+size = Vector2( 16, 16 )
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 1 )
+rq_gu = SubResource( 1 )
+topLeft = Vector2( 10, 10 )
+bottomRight = Vector2( 10, 10 )
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 2 )
+color = Color( 0.0235294, 0.113725, 0.462745, 1 )
+rq_gu = SubResource( 2 )
+
+[resource]
+script = ExtResource( 1 )
+rq_gu = SubResource( 3 )
+topLeft = Vector2( 0, 0 )
+bottomRight = Vector2( 0, 0 )
