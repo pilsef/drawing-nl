@@ -1,21 +1,11 @@
-[gd_resource type="Resource" script_class="Windo" load_steps=7 format=3 uid="uid://dwml170ghlyxm"]
+[gd_resource type="Resource" script_class="Windo" load_steps=4 format=3 uid="uid://dwml170ghlyxm"]
 
-[ext_resource type="Resource" uid="uid://casn1i6jd4lpj" path="res://animals/rq_animals_with_text_below.tres" id="1_qbtou"]
+[ext_resource type="Script" path="res://fn/FnGu.gd" id="1_u8jdq"]
 [ext_resource type="Script" path="res://Windo.gd" id="1_wwyl7"]
-[ext_resource type="Script" path="res://fn/FnGuBackgrounded.gd" id="4_lt3yj"]
-[ext_resource type="Script" path="res://fn/FnGuPadded.gd" id="5_m1anc"]
 
-[sub_resource type="Resource" id="Resource_bmtrq"]
-script = ExtResource("5_m1anc")
-rq_gu = ExtResource("1_qbtou")
-left_top = Vector2(0, 0)
-right_bottom = Vector2(0, 10)
-
-[sub_resource type="Resource" id="Resource_0rmu2"]
-script = ExtResource("4_lt3yj")
-color = Color(0, 0.67451, 0, 1)
-rq_gu = SubResource("Resource_bmtrq")
+[sub_resource type="Resource" id="Resource_fm80m"]
+script = ExtResource("1_u8jdq")
 
 [resource]
 script = ExtResource("1_wwyl7")
-rq_gu = SubResource("Resource_0rmu2")
+rq_gu = SubResource("Resource_fm80m")

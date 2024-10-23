@@ -1,27 +1,57 @@
-[gd_resource type="Resource" script_class="Windo" load_steps=12 format=3 uid="uid://dyd8mqo46uvi6"]
+[gd_resource type="Resource" script_class="Windo" load_steps=21 format=3 uid="uid://dyd8mqo46uvi6"]
 
 [ext_resource type="Script" path="res://Windo.gd" id="1"]
 [ext_resource type="Script" path="res://RenderStep.gd" id="1_h0nqo"]
 [ext_resource type="Resource" uid="uid://co5qqyh6w4dnr" path="res://everypage/header_bg.tres" id="1_rpr6a"]
 [ext_resource type="Resource" uid="uid://bm4p0vgcmrv26" path="res://everypage/txt_everypage.tres" id="2_veoul"]
-[ext_resource type="Script" path="res://fn/FnGuChainPaddedScaledText.gd" id="3_1w004"]
+[ext_resource type="Script" path="res://fn/FnGuFromTextd.gd" id="3_0pjcn"]
 [ext_resource type="Script" path="res://fn/Fn.gd" id="3_tyad8"]
 [ext_resource type="Script" path="res://fn/FnGuTree.gd" id="4_lko3c"]
+[ext_resource type="Script" path="res://fn/FnGuScaled.gd" id="5_f6ln4"]
+[ext_resource type="Script" path="res://fn/FnGuPadded.gd" id="6_stqf7"]
+[ext_resource type="Script" path="res://fn/FnGuNested.gd" id="7_0r841"]
+[ext_resource type="Script" path="res://fn/FnGuChainNested.gd" id="8_e15h1"]
+
+[sub_resource type="Resource" id="Resource_jnlt7"]
+script = ExtResource("6_stqf7")
+rq_gu = ExtResource("2_veoul")
+left_top = Vector2(10, 0)
+right_bottom = Vector2(0, 0)
 
 [sub_resource type="Resource" id="Resource_teuw6"]
 script = ExtResource("1_h0nqo")
-rq_gu = ExtResource("2_veoul")
+rq_gu = SubResource("Resource_jnlt7")
 pos_render = Vector2(0, 0.5)
 dir_render = Vector2(1, 0)
 
-[sub_resource type="Resource" id="Resource_d1taa"]
-script = ExtResource("3_1w004")
-arr_text = Array[String](["Try Now", "Tutorials", "Examples", "Blog"])
-arr_rq_hierarchy = Array[ExtResource("3_tyad8")]([])
+[sub_resource type="Resource" id="Resource_pw88b"]
+script = ExtResource("3_0pjcn")
+txt = "default text"
+
+[sub_resource type="Resource" id="Resource_n55y6"]
+script = ExtResource("5_f6ln4")
+scale = 2
+
+[sub_resource type="Resource" id="Resource_rsu1l"]
+script = ExtResource("6_stqf7")
+left_top = Vector2(10, 0)
+right_bottom = Vector2(10, 0)
+
+[sub_resource type="Resource" id="Resource_2jcxu"]
+script = ExtResource("7_0r841")
+arr_rq_hierarchy = Array[ExtResource("3_tyad8")]([SubResource("Resource_n55y6"), SubResource("Resource_rsu1l")])
+
+[sub_resource type="Resource" id="Resource_gv3jw"]
+script = ExtResource("8_e15h1")
+pos_next_rel = Vector2(0, 0)
+dir_next = Vector2(-1, 1)
+arr_baselem = ["Blog", "Examples", "Tutorials"]
+rq_base_template = SubResource("Resource_pw88b")
+rq_nested_template = SubResource("Resource_2jcxu")
 
 [sub_resource type="Resource" id="Resource_rqs6l"]
 script = ExtResource("1_h0nqo")
-rq_gu = SubResource("Resource_d1taa")
+rq_gu = SubResource("Resource_gv3jw")
 pos_render = Vector2(1, 0.5)
 dir_render = Vector2(-1, 0)
 
