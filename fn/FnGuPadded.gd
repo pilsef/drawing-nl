@@ -4,12 +4,14 @@ class_name FnGuPadded
 
 @export var rq_gu: Fn
 
-@export var left_top: Vector2 = Vector2(0,0)
-@export var right_bottom: Vector2 = Vector2(0,0)
+@export var left = 0
+@export var right = 0
+@export var top = 0
+@export var bottom = 0
 
 func exec():
 	
 	var gu = rq_gu.exec()
-	gu.pad(left_top, right_bottom)
+	gu.pad(left, right, top, bottom)
 	
 	return gu

@@ -18,9 +18,9 @@ func place(ch:Guber, pos_abs = Vector2(0,0), dir = Vector2(1,1)):
 		bounds = bounds.merge(rect_ch)
 		
 	return rect_ch
-	
-func pad(left_top = Vector2(0,0), right_bottom = Vector2(0,0)):
-	bounds = bounds.grow_individual(left_top.x, left_top.y, right_bottom.x, right_bottom.y)
+
+func pad(left = 0, right = 0, top = 0, bottom = 0):
+	bounds = bounds.grow_individual(left, top, right, bottom)
 	bounds = bounds.abs()
 
 func scale_by(ratio:Vector2):

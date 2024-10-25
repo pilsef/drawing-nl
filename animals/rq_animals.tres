@@ -16,8 +16,10 @@ script = ExtResource("4_q1wg1")
 
 [sub_resource type="Resource" id="Resource_g2aao"]
 script = ExtResource("6_386cw")
-left_top = Vector2(10, 10)
-right_bottom = Vector2(10, 10)
+left = 10
+right = 10
+top = 10
+bottom = 10
 
 [sub_resource type="Resource" id="Resource_i3rkn"]
 script = ExtResource("7_tj0ye")

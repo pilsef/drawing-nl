@@ -19,8 +19,10 @@ scale = 2
 
 [sub_resource type="Resource" id="Resource_jtp83"]
 script = ExtResource("5_hwaob")
-left_top = Vector2(0, 50)
-right_bottom = Vector2(0, 0)
+left = 0
+right = 0
+top = 50
+bottom = 0
 
 [sub_resource type="Resource" id="Resource_r7asn"]
 script = ExtResource("6_ttl1s")

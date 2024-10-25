@@ -15,8 +15,10 @@
 [sub_resource type="Resource" id="Resource_jnlt7"]
 script = ExtResource("6_stqf7")
 rq_gu = ExtResource("2_veoul")
-left_top = Vector2(10, 0)
-right_bottom = Vector2(0, 0)
+left = 20
+right = 0
+top = 0
+bottom = 0
 
 [sub_resource type="Resource" id="Resource_teuw6"]
 script = ExtResource("1_h0nqo")
@@ -34,8 +36,10 @@ scale = 2
 
 [sub_resource type="Resource" id="Resource_rsu1l"]
 script = ExtResource("6_stqf7")
-left_top = Vector2(10, 0)
-right_bottom = Vector2(10, 0)
+left = 20
+right = 20
+top = 0
+bottom = 0
 
 [sub_resource type="Resource" id="Resource_2jcxu"]
 script = ExtResource("7_0r841")
