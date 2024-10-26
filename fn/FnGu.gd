@@ -4,13 +4,13 @@ class_name FnGu
 
 func exec():
 
-	#return rq_nested.exec()
+	#return rq_decorated.exec()
 	
 	var rq_draw_links = chained_text(
 		[
 			"Services", "About", "Company"
 		],
-		nested([
+		decorated([
 			scaled(2),
 			padded_a(10),
 			backgrounded(Color.WEB_GREEN),
@@ -19,7 +19,7 @@ func exec():
 		])
 	)
 	
-	var rq_draw_title = nested(
+	var rq_draw_title = decorated(
 		[
 			scaled(4),
 			padded_h(10, 300)
@@ -43,7 +43,7 @@ func exec():
 			"Since 1902, we've been providing the best consulting services.",
 			"Reach out to a team member today to see how we can help YOU."
 		],
-		nested([
+		decorated([
 			scaled(2),
 			padded_v(10, 0)
 		]),
@@ -61,7 +61,7 @@ func exec():
 		Pos.BOTTOM_MIDDLE, Dir.DOWN
 	)
 	
-	var rq_decorate = nested(
+	var rq_decorate = decorated(
 		[
 			scaled(2),
 			padded_a(10),
@@ -87,35 +87,35 @@ func exec():
 	)).exec()
 
 # top to bottom
-static func nested(arr_rq_hierarchy:Array[Fn], rq_gu:Fn = null):
-	var rq_nested = FnGuNested.new()
-	rq_nested.arr_rq_hierarchy = arr_rq_hierarchy
-	rq_nested.rq_gu = rq_gu
-	return rq_nested
+static func decorated(arr_rq_hierarchy:Array[Fn], rq_gu:Fn = null):
+	var rq_decorated = FnGuDecorated.new()
+	rq_decorated.arr_rq_hierarchy = arr_rq_hierarchy
+	rq_decorated.rq_gu = rq_gu
+	return rq_decorated
 
 static func chained_rq(arr_rq_gu:Array, pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT):
 	return chained(arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), pos, dir)
 	
 static func chained_tex(
-	arr_rq_tex:Array, rq_nested_template:Fn, 
+	arr_rq_tex:Array, rq_decorated_unbound:Fn, 
 	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
 ):
-	return chained(arr_rq_tex, FnGuFromTex, rq_nested_template, pos, dir)
+	return chained(arr_rq_tex, FnGuFromTex, rq_decorated_unbound, pos, dir)
 	
 static func chained_text(
-	arr_rq_text:Array, rq_nested_template:Fn,
+	arr_rq_text:Array, rq_decorated_unbound:Fn,
 	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
 ):
-	return chained(arr_rq_text, FnGuFromTextd, rq_nested_template, pos, dir)
+	return chained(arr_rq_text, FnGuFromTextd, rq_decorated_unbound, pos, dir)
 
 static func chained(
-	arr_baselem:Array, class_baselem, rq_nested_template:Fn, 
+	arr_baselem:Array, class_baselem, rq_decorated_unbound:Fn, 
 	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
 ) -> Fn:
-	var rq_chain = FnGuChainNested.new()
+	var rq_chain = FnGuChainDecorated.new()
 	rq_chain.arr_baselem = arr_baselem
 	rq_chain.class_baselem = class_baselem
-	rq_chain.rq_nested_template = rq_nested_template
+	rq_chain.rq_decorated_unbound = rq_decorated_unbound
 	rq_chain.pos = pos
 	rq_chain.dir = dir
 
@@ -132,36 +132,39 @@ static func chained_rq_2d(
 	)
 	
 static func chained_tex_2d(
-	arr_rq_tex:Array, rq_nested_template:Fn, breadth_1d = 3, 
+	arr_rq_tex:Array, rq_decorated_unbound:Fn, breadth_1d = 3, 
 	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
 	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
 ):
 	return chained_2d(
-		arr_rq_tex, FnGuFromTex, rq_nested_template, breadth_1d,
+		arr_rq_tex, FnGuFromTex, rq_decorated_unbound, breadth_1d,
 		pos_1d, dir_1d, pos_2d, dir_2d
 	)
 	
-static func chained_text_2d(arr_rq_text:Array, rq_nested_template:Fn, breadth_1d = 3, 
+static func chained_text_2d(
+	arr_rq_text:Array, rq_decorated_unbound:Fn, breadth_1d = 3, 
 	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
 	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
 ):
 	return chained_2d(
-		arr_rq_text, FnGuFromTextd, rq_nested_template, breadth_1d,
+		arr_rq_text, FnGuFromTextd, rq_decorated_unbound, breadth_1d,
 		pos_1d, dir_1d, pos_2d, dir_2d
 	)
 
 static func chained_2d(
-	arr_baselem:Array, class_baselem, rq_nested_template:Fn, breadth_1d = 3, 
+	arr_baselem:Array, class_baselem, rq_decorated_unbound:Fn, breadth_1d = 3, 
 	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
 	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
 ) -> Fn:
 
-	var rq_chain_2d = FnGuChain2DNested.new()
+	var rq_chain_2d = FnGuChain2dDecorated.new()
 	rq_chain_2d.arr_baselem = arr_baselem
 	rq_chain_2d.class_baselem = class_baselem
-	rq_chain_2d.rq_nested_template = rq_nested_template
+	rq_chain_2d.rq_decorated_unbound = rq_decorated_unbound
 	rq_chain_2d.breadth_1d = breadth_1d
+	rq_chain_2d.pos_1d = pos_1d
 	rq_chain_2d.dir_1d = dir_1d
+	rq_chain_2d.pos_2d = pos_2d
 	rq_chain_2d.dir_2d = dir_2d
 
 	return rq_chain_2d

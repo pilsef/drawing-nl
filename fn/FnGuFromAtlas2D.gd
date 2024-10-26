@@ -14,7 +14,7 @@ class_name FnGuFromAtlas2D
 @export var dir_2d_next = Vector2(1,1)
 
 func exec():
-	var rq_gu_chain_2d = FnGuChain2D.new()
+	var rq_gu_chain_2d = FnGuChain2d.new()
 	
 	rq_gu_chain_2d.dim_1d = dim_1d
 	rq_gu_chain_2d.pos_1d_next_rel = pos_1d_next_rel

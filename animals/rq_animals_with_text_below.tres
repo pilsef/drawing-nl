@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://fn/FnGuScaled.gd" id="4_8b31l"]
 [ext_resource type="Script" path="res://fn/FnGuPadded.gd" id="5_hwaob"]
 [ext_resource type="Script" path="res://fn/FnGuNested.gd" id="6_ttl1s"]
-[ext_resource type="Script" path="res://fn/FnGuChainNested.gd" id="7_dntw1"]
+[ext_resource type="Script" path="res://fn/FnGuChainDecorated.gd" id="7_dntw1"]
 [ext_resource type="Script" path="res://fn/FnGuChain.gd" id="8_c4rfk"]
 
 [sub_resource type="Resource" id="Resource_47o04"]

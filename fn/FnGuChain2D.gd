@@ -1,15 +1,15 @@
 extends Fn
 
-class_name FnGuChain2D
+class_name FnGuChain2d
 
 @export var breadth_1d = 3
 @export var arr_rq_gu: Array
 
-@export var pos_1d_next_rel = Vector2(1,0)
-@export var dir_1d_next = Vector2(1,1)
+@export var pos_1d_next_rel = Pos.TOP_RIGHT
+@export var dir_1d_next = Dir.DOWN_RIGHT
 
-@export var pos_2d_next_rel = Vector2(0,1)
-@export var dir_2d_next = Vector2(1,1)
+@export var pos_2d_next_rel = Pos.BOTTOM_LEFT
+@export var dir_2d_next = Dir.DOWN_RIGHT
 
 func exec():
 
@@ -37,7 +37,7 @@ static func create_rq_chain_1d(
 			
 	return rq_chain_1d
 
-static func create_rq_chain(pos_next_rel = Vector2(1,0), dir_next = Vector2(1,1)):
+static func create_rq_chain(pos_next_rel: Vector2, dir_next: Vector2):
 	var rq_col = FnGuChain.new()
 	rq_col.pos_next_rel = pos_next_rel
 	rq_col.dir_next = dir_next

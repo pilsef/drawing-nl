@@ -1,10 +1,10 @@
 extends Fn
 
-class_name FnGuChain2DNested
+class_name FnGuChain2dDecorated
 
 @export var arr_baselem = []
 @export var class_baselem : GDScript
-@export var rq_nested_template : Fn
+@export var rq_decorated_unbound : Fn
 
 @export var pos_1d = Pos.TOP_RIGHT
 @export var dir_1d = Dir.DOWN_RIGHT
@@ -15,11 +15,11 @@ class_name FnGuChain2DNested
 @export var breadth_1d = 3
 
 func exec():
-	var rq_chain = FnGuChain2D.new()
+	var rq_chain = FnGuChain2d.new()
 	
 	for baselem in arr_baselem:
-		var rq_nested = FnGuChainNested.build_rq(baselem, class_baselem, rq_nested_template)
-		rq_chain.arr_rq_gu.append(rq_nested)
+		var rq_decorated = FnGuChainDecorated.build_rq(baselem, class_baselem, rq_decorated_unbound)
+		rq_chain.arr_rq_gu.append(rq_decorated)
 
 	#rq_chain.pos_1d_next_rel = dir_to_pos_next_rel(dir_1d)
 	#rq_chain.dir_1d_next = dir_1d

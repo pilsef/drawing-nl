@@ -2,8 +2,8 @@ extends Fn
 
 class_name FnGuChain
 
-@export var pos_next_rel = Vector2(1,0)
-@export var dir_next = Vector2(1,1)
+@export var pos_next_rel = Pos.TOP_RIGHT
+@export var dir_next = Dir.DOWN_RIGHT
 
 @export var arr_rq_gu : Array[Fn]
 

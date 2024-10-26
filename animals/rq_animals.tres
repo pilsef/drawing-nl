@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://fn/FnGuScaled.gd" id="7_tj0ye"]
 [ext_resource type="Script" path="res://fn/FnGuBackgrounded.gd" id="8_qu82d"]
 [ext_resource type="Script" path="res://fn/FnGuNested.gd" id="9_vqdkt"]
-[ext_resource type="Script" path="res://fn/FnGuChainNested.gd" id="10_7xx0u"]
+[ext_resource type="Script" path="res://fn/FnGuChainDecorated.gd" id="10_7xx0u"]
 
 [sub_resource type="Resource" id="Resource_an4ok"]
 script = ExtResource("4_q1wg1")
