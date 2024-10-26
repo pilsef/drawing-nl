@@ -2,7 +2,8 @@ extends Fn
 
 class_name FnGuChainNested
 
-@export var dir = Vector2.RIGHT
+@export var pos = Pos.TOP_RIGHT
+@export var dir = Dir.DOWN_RIGHT
 
 @export var arr_baselem = []
 @export var class_baselem : GDScript
@@ -11,7 +12,7 @@ class_name FnGuChainNested
 func exec():
 	
 	var rq_gu_chain = FnGuChain.new()
-	rq_gu_chain.pos_next_rel = dir_to_pos_next_rel(dir)
+	rq_gu_chain.pos_next_rel = pos # dir_to_pos_next_rel(dir)
 	rq_gu_chain.dir_next = dir
 	
 	for baselem in arr_baselem:
@@ -20,8 +21,8 @@ func exec():
 		
 	return rq_gu_chain.exec()
 	
-static func dir_to_pos_next_rel(dir:Vector2):
-	return (dir + Vector2(1,1)) * 0.5
+#static func dir_to_pos_next_rel(dir:Vector2):
+	#return (dir + Vector2(1,1)) * 0.5
 	
 static func build_rq(baselem, class_baselem, rq_nested_template):
 	var rq_base = class_baselem.new()

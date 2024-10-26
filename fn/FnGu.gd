@@ -5,7 +5,7 @@ class_name FnGu
 func exec():
 
 	#return rq_nested.exec()
-
+	
 	var rq_draw_links = chained_text(
 		[
 			"Services", "About", "Company"
@@ -16,8 +16,7 @@ func exec():
 			backgrounded(Color.WEB_GREEN),
 			padded_a(10),
 			backgrounded(Color.DARK_SLATE_GRAY)
-		]),
-		Vector2.RIGHT
+		])
 	)
 	
 	var rq_draw_title = nested(
@@ -25,7 +24,7 @@ func exec():
 			scaled(4),
 			padded_h(10, 300)
 		],
-		from_textd("EveryPage")
+		stringd("Superior Systems")
 	)
 	
 	var rq_header = backgrounded(Color.CADET_BLUE,
@@ -34,7 +33,7 @@ func exec():
 				rq_draw_links,
 				rq_draw_title
 			],
-			Vector2.LEFT
+			Pos.LEFT_MIDDLE, Dir.LEFT
 		)
 	)
 	
@@ -48,28 +47,43 @@ func exec():
 			scaled(2),
 			padded_v(10, 0)
 		]),
-		Vector2.DOWN
+		Pos.BOTTOM_LEFT, Dir.DOWN_RIGHT
 	)
 	
 	var rq_page = chained_rq(
 		[
-			scaled(6, from_textd("Got Questions?")),
-			from_space_v(10),
-			scaled(3, from_textd("We've got answers")),
-			from_space_v(20),
+			scaled(6, stringd("Got Questions?")),
+			space_v(10),
+			scaled(3, stringd("We've got answers")),
+			space_v(20),
 			rq_blurb
 		], 
-		Vector2.DOWN
+		Pos.BOTTOM_MIDDLE, Dir.DOWN
 	)
+	
+	var rq_decorate = nested(
+		[
+			scaled(2),
+			padded_a(10),
+			backgrounded(Color.MIDNIGHT_BLUE),
+			padded_a(10),
+			backgrounded(Color.BLACK)
+		]
+	)
+	
+	#return chained_text_2d(
+		#["Hello", "World", "It's", "Me", "Willem", "Anemonetuhonutho"], 
+		#rq_decorate, 3, Vector2.RIGHT, Vector2.DOWN
+	#).exec()
 	
 	return backgrounded(Color.DIM_GRAY, chained_rq(
 		[
 			rq_header, 
-			from_space_v(150),
+			space_v(150),
 			rq_page,
-			from_space_v(200)
+			space_v(200)
 		],
-		Vector2.DOWN
+		Pos.BOTTOM_MIDDLE, Dir.DOWN
 	)).exec()
 
 # top to bottom
@@ -79,52 +93,69 @@ static func nested(arr_rq_hierarchy:Array[Fn], rq_gu:Fn = null):
 	rq_nested.rq_gu = rq_gu
 	return rq_nested
 
-static func chained_rq(arr_rq_gu:Array, dir = Vector2.RIGHT):
-	return chained(arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), dir)
+static func chained_rq(arr_rq_gu:Array, pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT):
+	return chained(arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), pos, dir)
 	
-static func chained_tex(arr_rq_tex:Array, rq_nested_template:Fn, dir = Vector2.RIGHT):
-	return chained(arr_rq_tex, FnGuFromTex, rq_nested_template, dir)
+static func chained_tex(
+	arr_rq_tex:Array, rq_nested_template:Fn, 
+	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
+):
+	return chained(arr_rq_tex, FnGuFromTex, rq_nested_template, pos, dir)
 	
-static func chained_text(arr_rq_text:Array, rq_nested_template:Fn, dir = Vector2.RIGHT):
-	return chained(arr_rq_text, FnGuFromTextd, rq_nested_template, dir)
+static func chained_text(
+	arr_rq_text:Array, rq_nested_template:Fn,
+	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
+):
+	return chained(arr_rq_text, FnGuFromTextd, rq_nested_template, pos, dir)
 
 static func chained(
-	arr_baselem:Array, class_baselem, rq_nested_template:Fn, dir = Vector2.RIGHT
+	arr_baselem:Array, class_baselem, rq_nested_template:Fn, 
+	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
 ) -> Fn:
 	var rq_chain = FnGuChainNested.new()
 	rq_chain.arr_baselem = arr_baselem
 	rq_chain.class_baselem = class_baselem
 	rq_chain.rq_nested_template = rq_nested_template
+	rq_chain.pos = pos
 	rq_chain.dir = dir
 
 	return rq_chain
 	
 static func chained_rq_2d(
-	arr_rq_gu:Array, breadth_1d = 3,dir_1d = Vector2.RIGHT, dir_2d = Vector2.DOWN
+	arr_rq_gu:Array, breadth_1d = 3,
+	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
+	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
 ):
 	return chained_2d(
-		arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), breadth_1d, dir_1d, dir_2d
+		arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), breadth_1d,
+		pos_1d, dir_1d, pos_2d, dir_2d
 	)
 	
 static func chained_tex_2d(
 	arr_rq_tex:Array, rq_nested_template:Fn, breadth_1d = 3, 
-	dir_1d = Vector2.RIGHT, dir_2d = Vector2.DOWN
+	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
+	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
 ):
 	return chained_2d(
-		arr_rq_tex, FnGuFromTex, rq_nested_template, breadth_1d, dir_1d, dir_2d
+		arr_rq_tex, FnGuFromTex, rq_nested_template, breadth_1d,
+		pos_1d, dir_1d, pos_2d, dir_2d
 	)
 	
 static func chained_text_2d(arr_rq_text:Array, rq_nested_template:Fn, breadth_1d = 3, 
-	dir_1d = Vector2.RIGHT, dir_2d = Vector2.DOWN
+	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
+	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
 ):
 	return chained_2d(
-		arr_rq_text, FnGuFromTextd, rq_nested_template, breadth_1d, dir_1d, dir_2d
+		arr_rq_text, FnGuFromTextd, rq_nested_template, breadth_1d,
+		pos_1d, dir_1d, pos_2d, dir_2d
 	)
 
 static func chained_2d(
-	arr_baselem:Array, class_baselem, rq_nested_template:Fn,
-	breadth_1d = 3, dir_1d = Vector2.RIGHT, dir_2d = Vector2.DOWN
+	arr_baselem:Array, class_baselem, rq_nested_template:Fn, breadth_1d = 3, 
+	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
+	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
 ) -> Fn:
+
 	var rq_chain_2d = FnGuChain2DNested.new()
 	rq_chain_2d.arr_baselem = arr_baselem
 	rq_chain_2d.class_baselem = class_baselem
@@ -135,24 +166,24 @@ static func chained_2d(
 
 	return rq_chain_2d
 	
-static func from_space_h(space) -> Fn:
-	return from_color(Color(0,0,0,0), Vector2(space, 1))
+static func space_h(space) -> Fn:
+	return box(Color(0,0,0,0), Vector2(space, 1))
 	
-static func from_space_v(space) -> Fn:
-	return from_color(Color(0,0,0,0), Vector2(1, space))
+static func space_v(space) -> Fn:
+	return box(Color(0,0,0,0), Vector2(1, space))
 
-static func from_color(color:Color, size:Vector2) -> Fn:
+static func box(color:Color, size:Vector2) -> Fn:
 	var rq_gu = FnGuFromColor.new()
 	rq_gu.color = color
 	rq_gu.size = size
 	return rq_gu
 
-static func from_tex(tex:Texture) -> Fn:
+static func tex(tex:Texture) -> Fn:
 	var rq_gu = FnGuFromTex.new()
 	rq_gu.tex = tex
 	return rq_gu
 	
-static func from_textd(txt:String) -> Fn:
+static func stringd(txt:String) -> Fn:
 	var rq_gu = FnGuFromTextd.new()
 	rq_gu.txt = txt
 	return rq_gu
