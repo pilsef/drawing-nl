@@ -2,7 +2,7 @@ extends Node2D
 
 func _ready():
 
-	var rq_gu = load("res://windo_test.tres").rq_gu
+	var rq_gu = load("res://windo.tres").rq_gu
 	var gu = rq_gu.exec()
 	add_child(gu)
 	gu.position -= gu.bounds.position

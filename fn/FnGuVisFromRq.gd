@@ -10,7 +10,7 @@ func exec():
 	var rq_col_vals = create_rq_chain(Vector2(0,1))
 	
 	for prop in rq.get_property_list():
-		if prop.usage == 8199:
+		if prop.usage == 4102:
 			rq_col_keys.arr_rq_gu.append(create_rq_str(prop["name"]))
 			rq_col_vals.arr_rq_gu.append(create_rq_str(rq.get(prop["name"])))
 			
@@ -29,7 +29,7 @@ func exec():
 #	rq_col.pos_next_rel = Vector2(0,1)
 #
 #	for prop in rq.get_property_list():
-#		if prop.usage == 8199:
+#		if prop.usage == 4102:
 #			var rq_row = create_rq_row([prop["name"], rq.get(prop["name"])])
 #			rq_col.arr_rq_gu.append(rq_row)
 #

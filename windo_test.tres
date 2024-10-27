@@ -1,11 +1,13 @@
-[gd_resource type="Resource" script_class="Windo" load_steps=4 format=3 uid="uid://dwml170ghlyxm"]
+[gd_resource type="Resource" script_class="Windo" load_steps=5 format=3 uid="uid://dwml170ghlyxm"]
 
-[ext_resource type="Script" path="res://fn/FnGu.gd" id="1_u8jdq"]
+[ext_resource type="Resource" uid="uid://ohhyy4e0uq5a" path="res://rq/rq_gu_padded_test.tres" id="1_jn841"]
 [ext_resource type="Script" path="res://Windo.gd" id="1_wwyl7"]
+[ext_resource type="Script" path="res://fn/FnGuVisFromRq.gd" id="2_wcstt"]
 
-[sub_resource type="Resource" id="Resource_fm80m"]
-script = ExtResource("1_u8jdq")
+[sub_resource type="Resource" id="Resource_3pum3"]
+script = ExtResource("2_wcstt")
+rq = ExtResource("1_jn841")
 
 [resource]
 script = ExtResource("1_wwyl7")
-rq_gu = SubResource("Resource_fm80m")
+rq_gu = SubResource("Resource_3pum3")

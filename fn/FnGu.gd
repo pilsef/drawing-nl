@@ -3,88 +3,10 @@ extends Fn
 class_name FnGu
 
 func exec():
+	
+	return
+	
 
-	#return rq_decorated.exec()
-	
-	var rq_draw_links = chained_text(
-		[
-			"Services", "About", "Company"
-		],
-		decorated([
-			scaled(2),
-			padded_a(10),
-			backgrounded(Color.WEB_GREEN),
-			padded_a(10),
-			backgrounded(Color.DARK_SLATE_GRAY)
-		])
-	)
-	
-	var rq_draw_title = decorated(
-		[
-			scaled(4),
-			padded_h(10, 300)
-		],
-		stringd("Superior Systems")
-	)
-	
-	var rq_header = backgrounded(Color.CADET_BLUE,
-		chained_rq(
-			[
-				rq_draw_links,
-				rq_draw_title
-			],
-			Pos.LEFT_MIDDLE, Dir.LEFT
-		)
-	)
-	
-	var rq_blurb = chained_text(
-		[
-			"Superior Systems. We're the best in the biz.",
-			"Since 1902, we've been providing the best consulting services.",
-			"Reach out to a team member today to see how we can help YOU."
-		],
-		decorated([
-			scaled(2),
-			padded_v(10, 0)
-		]),
-		Pos.BOTTOM_LEFT, Dir.DOWN_RIGHT
-	)
-	
-	var rq_page = chained_rq(
-		[
-			scaled(6, stringd("Got Questions?")),
-			space_v(10),
-			scaled(3, stringd("We've got answers")),
-			space_v(20),
-			rq_blurb
-		], 
-		Pos.BOTTOM_MIDDLE, Dir.DOWN
-	)
-	
-	var rq_decorate = decorated(
-		[
-			scaled(2),
-			padded_a(10),
-			backgrounded(Color.MIDNIGHT_BLUE),
-			padded_a(10),
-			backgrounded(Color.BLACK)
-		]
-	)
-	
-	#return chained_text_2d(
-		#["Hello", "World", "It's", "Me", "Willem", "Anemonetuhonutho"], 
-		#rq_decorate, 3, Vector2.RIGHT, Vector2.DOWN
-	#).exec()
-	
-	return backgrounded(Color.DIM_GRAY, chained_rq(
-		[
-			rq_header, 
-			space_v(150),
-			rq_page,
-			space_v(200)
-		],
-		Pos.BOTTOM_MIDDLE, Dir.DOWN
-	)).exec()
 
 # top to bottom
 static func decorated(arr_rq_hierarchy:Array[Fn], rq_gu:Fn = null):
@@ -93,20 +15,22 @@ static func decorated(arr_rq_hierarchy:Array[Fn], rq_gu:Fn = null):
 	rq_decorated.rq_gu = rq_gu
 	return rq_decorated
 
-static func chained_rq(arr_rq_gu:Array, pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT):
+static func chained_rq(
+	arr_rq_gu:Array, pos = Pos.BOTTOM_LEFT, dir = Dir.DOWN_RIGHT
+):
 	return chained(arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), pos, dir)
 	
 static func chained_tex(
-	arr_rq_tex:Array, rq_decorated_unbound:Fn, 
+	arr_tex:Array, rq_decorated_unbound:Fn, 
 	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
 ):
-	return chained(arr_rq_tex, FnGuFromTex, rq_decorated_unbound, pos, dir)
+	return chained(arr_tex, FnGuFromTex, rq_decorated_unbound, pos, dir)
 	
 static func chained_text(
-	arr_rq_text:Array, rq_decorated_unbound:Fn,
-	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
+	arr_text:Array, rq_decorated_unbound:Fn,
+	pos = Pos.BOTTOM_LEFT, dir = Dir.DOWN_RIGHT
 ):
-	return chained(arr_rq_text, FnGuFromTextd, rq_decorated_unbound, pos, dir)
+	return chained(arr_text, FnGuFromTextd, rq_decorated_unbound, pos, dir)
 
 static func chained(
 	arr_baselem:Array, class_baselem, rq_decorated_unbound:Fn, 
@@ -186,7 +110,7 @@ static func tex(tex:Texture) -> Fn:
 	rq_gu.tex = tex
 	return rq_gu
 	
-static func stringd(txt:String) -> Fn:
+static func textd(txt:String) -> Fn:
 	var rq_gu = FnGuFromTextd.new()
 	rq_gu.txt = txt
 	return rq_gu

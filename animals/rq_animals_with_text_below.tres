@@ -1,40 +1,15 @@
-[gd_resource type="Resource" script_class="FnGuChain" load_steps=14 format=3 uid="uid://casn1i6jd4lpj"]
+[gd_resource type="Resource" script_class="FnGuChain" load_steps=6 format=3 uid="uid://casn1i6jd4lpj"]
 
 [ext_resource type="Script" path="res://fn/Fn.gd" id="1_vechf"]
 [ext_resource type="Resource" uid="uid://cqhikc1covocl" path="res://animals/rq_animals.tres" id="2_ekjwm"]
-[ext_resource type="Script" path="res://fn/FnGuFromTextd.gd" id="3_jk586"]
-[ext_resource type="Script" path="res://fn/FnGuScaled.gd" id="4_8b31l"]
-[ext_resource type="Script" path="res://fn/FnGuPadded.gd" id="5_hwaob"]
-[ext_resource type="Script" path="res://fn/FnGuNested.gd" id="6_ttl1s"]
 [ext_resource type="Script" path="res://fn/FnGuChainDecorated.gd" id="7_dntw1"]
 [ext_resource type="Script" path="res://fn/FnGuChain.gd" id="8_c4rfk"]
 
-[sub_resource type="Resource" id="Resource_47o04"]
-script = ExtResource("3_jk586")
-txt = "default text"
-
-[sub_resource type="Resource" id="Resource_t1kla"]
-script = ExtResource("4_8b31l")
-scale = 2
-
-[sub_resource type="Resource" id="Resource_jtp83"]
-script = ExtResource("5_hwaob")
-left = 0
-right = 0
-top = 50
-bottom = 0
-
-[sub_resource type="Resource" id="Resource_r7asn"]
-script = ExtResource("6_ttl1s")
-arr_rq_hierarchy = Array[ExtResource("1_vechf")]([SubResource("Resource_t1kla"), SubResource("Resource_jtp83")])
-
 [sub_resource type="Resource" id="Resource_nons6"]
 script = ExtResource("7_dntw1")
-pos_next_rel = Vector2(0.5, 1)
-dir_next = Vector2(0, 1)
+pos = Vector2(1, 0)
+dir = Vector2(1, 1)
 arr_baselem = ["One", "Two", "Three"]
-rq_base_template = SubResource("Resource_47o04")
-rq_nested_template = SubResource("Resource_r7asn")
 
 [resource]
 script = ExtResource("8_c4rfk")

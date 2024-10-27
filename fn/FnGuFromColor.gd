@@ -3,7 +3,7 @@ extends Fn
 class_name FnGuFromColor
 
 @export var color: Color = Color(0,0,0,0)
-@export var size: Vector2 = Vector2(16,16)
+@export var size: Vector2i = Vector2(16,16)
 
 func exec():
 
