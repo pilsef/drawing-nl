@@ -4,9 +4,26 @@ class_name FnGu
 
 func exec():
 	
-	return
+	var rq_owl = tex(load("res://tex/owl.png"))
 	
-
+	return embedded_abs(Color.AQUA, Vector2(100,100), rq_owl).exec()
+	
+static func embedded_abs(color:Color, size:Vector2, rq_gu:Fn = null):
+	var rq_embedded = FnGuEmbedded.new()
+	rq_embedded.color = color
+	rq_embedded.size = size
+	rq_embedded.rq_gu = rq_gu
+	return rq_embedded
+	
+static func embedded_rel(
+	color:Color, pad_l, pad_r, pad_t, pad_b, rq_gu:Fn = null
+):
+	return decorated(
+		[
+			padded(pad_l, pad_r, pad_t, pad_b),
+			backgrounded(color)
+		], rq_gu
+	)
 
 # top to bottom
 static func decorated(arr_rq_hierarchy:Array[Fn], rq_gu:Fn = null):

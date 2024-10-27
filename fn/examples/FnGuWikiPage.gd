@@ -24,11 +24,11 @@ func exec():
 		], Pos.BOTTOM_LEFT, Dir.DOWN_RIGHT
 	)
 	
-	var rq_pufferfish_photo = decorated(
+	var rq_photo = decorated(
 		[
 			scaled(6),
-			padded(150, 150, 80, 80),
-			backgrounded(Color.DARK_RED)
+			#padded(150, 150, 80, 80),
+			embedded_abs(Color.DARK_RED, Vector2(400, 240))
 		], tex(tex_img)
 	)
 	
@@ -49,15 +49,10 @@ func exec():
 		[
 			top_block,
 			space_v(20),
-			rq_pufferfish_photo, 
+			rq_photo, 
 			space_v(20),
 			padded(20, 0, 0, 0, rq_description)
 		], Pos.BOTTOM_LEFT, Dir.DOWN_RIGHT
 	)
 	
-	return decorated(
-		[
-			padded(20, 20, 40, 40),
-			backgrounded(Color.BLACK)
-		], rq_content
-	).exec()
+	return embedded_rel(Color.BLACK, 20, 20, 40, 40, rq_content).exec()
