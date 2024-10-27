@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource type="Script" path="res://fn/FnAtlasDictFromTex.gd" id="1"]
+[ext_resource type="Script" path="res://fn/FnFontdictFromTex.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dtjlmp7q6fe2f" path="res://tex/font-pico.png" id="2"]
 
 [resource]

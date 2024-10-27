@@ -2,11 +2,21 @@ extends Fn
 
 class_name FnGuFromText
 
+@export var rq_fontdict: Fn = load("res://rq/rq_fontdict_from_tex_pico.tres")
 @export var txt = "default text"
-@export var rq_font_atlas : FnAtlasDictFromTex
 
 func exec():
-	var rq_gu_atlas = FnGuFromAtlas.new()
-	rq_gu_atlas.iterable_wrapper = [txt]
-	rq_gu_atlas.rq_dict_atlas = rq_font_atlas
-	return rq_gu_atlas.exec()
+	var gu_chain = FnGuChain.new()
+	var fontdict = rq_fontdict.exec()
+	
+	for char in txt:
+		var tex = fontdict[char]
+		var rq_tex = create_rq_tex(tex)
+		gu_chain.arr_rq_gu.append(rq_tex)
+		
+	return gu_chain.exec()
+
+func create_rq_tex(tex):
+	var rq_tex = FnGuFromTex.new()
+	rq_tex.tex = tex
+	return rq_tex
