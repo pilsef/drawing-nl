@@ -6,7 +6,7 @@ func _ready():
 	var gu = rq_gu.exec()
 	add_child(gu)
 	gu.position -= gu.bounds.position
-	
+
 	set_initial_window(gu.bounds.size)
 
 func set_initial_window(size:Vector2):

@@ -6,16 +6,22 @@ func exec():
 	
 	var rq_owl = tex(load("res://tex/owl.png"))
 	
-	return embedded_abs(Color.AQUA, Vector2(100,100), rq_owl).exec()
+	return embedded(Color.AQUA, Vector2(100,100), rq_owl).exec()
 	
-static func embedded_abs(color:Color, size:Vector2, rq_gu:Fn = null):
+static func embedded(color:Color, size:Vector2, rq_gu:Fn = null):
 	var rq_embedded = FnGuEmbedded.new()
 	rq_embedded.color = color
 	rq_embedded.size = size
 	rq_embedded.rq_gu = rq_gu
 	return rq_embedded
 	
-static func embedded_rel(
+static func padgrounded_hv(color:Color, pad_h, pad_v, rq_gu:Fn = null):
+	return padgrounded(color, pad_h, pad_h, pad_v, pad_v, rq_gu)
+	
+static func padgrounded_a(color:Color, pad, rq_gu:Fn = null):
+	return padgrounded(color, pad, pad, pad, pad, rq_gu)
+	
+static func padgrounded(
 	color:Color, pad_l, pad_r, pad_t, pad_b, rq_gu:Fn = null
 ):
 	return decorated(
@@ -132,6 +138,12 @@ static func textd(txt:String) -> Fn:
 	rq_gu.txt = txt
 	return rq_gu
 
+static func tinted(color:Color, rq_gu:Fn = null) -> Fn:
+	var rq_gu_tinted = FnGuTinted.new()
+	rq_gu_tinted.color = color
+	rq_gu_tinted.rq_gu = rq_gu
+	return rq_gu_tinted
+
 static func backgrounded(color:Color, rq_gu:Fn = null) -> Fn:
 	var rq_gu_backgrounded = FnGuBackgrounded.new()
 	rq_gu_backgrounded.color = color
@@ -156,7 +168,7 @@ static func padded_h(left, right, rq_gu:Fn = null):
 static func padded_v(top, bottom, rq_gu:Fn = null):
 	return padded(0, 0, top, bottom, rq_gu)
 
-static func scaled(scale:int, rq_gu:Fn = null) -> Fn:
+static func scaled(scale, rq_gu:Fn = null) -> Fn:
 	var rq_gu_scaled = FnGuScaled.new()
 	rq_gu_scaled.scale = scale
 	rq_gu_scaled.rq_gu = rq_gu

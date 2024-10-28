@@ -2,7 +2,7 @@ extends Fn
 
 class_name FnGuScaled
 
-@export var scale = 2
+@export var scale = 2.0
 @export var rq_gu: Fn
 
 func exec():
