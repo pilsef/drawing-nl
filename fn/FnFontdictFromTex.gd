@@ -13,7 +13,7 @@ func exec():
 	var num_cols = tex.get_width() / size_cell.x as int
 	var idx_char = 0
 	
-	for char in string_chars:
+	for chr in string_chars:
 		
 		var idx_row = idx_char / num_cols
 		var idx_col = idx_char % num_cols
@@ -23,7 +23,7 @@ func exec():
 		atex_char.region = Rect2(size_cell * Vector2(idx_col, idx_row), size_cell)
 		
 		#var key = string_chars[idx_char]
-		fontdict[char] = atex_char
+		fontdict[chr] = atex_char
 		
 		idx_char += 1
 		

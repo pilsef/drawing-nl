@@ -9,8 +9,8 @@ func exec():
 	var gu_chain = FnGuChain.new()
 	var fontdict = rq_fontdict.exec()
 	
-	for char in txt:
-		var tex = fontdict[char]
+	for chr in txt:
+		var tex = fontdict[chr]
 		var rq_tex = create_rq_tex(tex)
 		gu_chain.arr_rq_gu.append(rq_tex)
 		

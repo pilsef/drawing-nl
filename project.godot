@@ -15,6 +15,10 @@ run/main_scene="res://Root.tscn"
 config/features=PackedStringArray("4.3")
 config/icon="res://tex/icon.png"
 
+[debug]
+
+gdscript/warnings/integer_division=0
+
 [display]
 
 window/size/viewport_width=1200
