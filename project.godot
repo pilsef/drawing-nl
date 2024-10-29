@@ -13,6 +13,7 @@ config_version=5
 config/name="Drawing- NL-Godot4"
 run/main_scene="res://Root.tscn"
 config/features=PackedStringArray("4.3")
+run/low_processor_mode=true
 config/icon="res://tex/icon.png"
 
 [debug]
