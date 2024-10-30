@@ -2,7 +2,7 @@ extends FnGu
 
 class_name FnGuWikiPage
 
-@export var tex_img = load("res://tex/pufferfish.png")
+@export var tex_img = preload("res://tex/pufferfish.png")
 @export var str_name = "Pufferfish"
 @export var str_classification = "Aquatic creature"
 @export var arr_desc = [
@@ -30,7 +30,7 @@ func exec():
 			scaled(6),
 			embedded(Color.SKY_BLUE, Vector2(340, 220)),
 			padgrounded_a(Color.BLACK, 10)
-		], tex(tex_img)
+		], img(tex_img)
 	)
 	
 	var rq_description = chained_rq(

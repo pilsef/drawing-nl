@@ -1,28 +1,37 @@
 extends Node2D
 
+@export var rq_gu_root:Fn
+
+@export var arr_rq_other: Array[Fn]
+
 func _ready():
+	var gu_root = rq_gu_root.exec()
+	add_child(gu_root)
+	gu_root.position -= gu_root.bounds.position
 
-	var rq_gu = load("res://windo.tres").rq_gu
-	var gu = rq_gu.exec()
-	add_child(gu)
-	gu.position -= gu.bounds.position
-
-	set_initial_window(gu.bounds.size)
+	set_initial_window(gu_root.bounds.size)
+	
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey && event.keycode == KEY_K && event.is_released():
+		var image = get_viewport().get_texture().get_image()
+		var size = image.get_size() / get_window().content_scale_factor
+		image.resize(size.x, size.y, Image.INTERPOLATE_NEAREST)
+		
+		var dt = Time.get_datetime_dict_from_system()
+		var datetime = "%s-%s-%s@%s.%s.%s"  % [dt.year, dt.month, dt.day, dt.hour, dt.minute, dt.second]
+		var path = "/Users/pilsef/Desktop/capture-%s.png" % datetime
+		
+		image.save_png(path)
+		print("Screenshot saved as %s" % path)
 
 func set_initial_window(size:Vector2):
 
 	var window = get_window()
+	var screen_scale = DisplayServer.screen_get_scale()
+
 	window.min_size = Vector2(1,1)
-	window.size = size
 
-# see https://forum.godotengine.org/t/is-there-some-mismatch-between-godot-window-size-pixels-and-os-x-window-size/40140/3
-	var retina_scale = DisplayServer.screen_get_scale()
-	if (window.content_scale_factor != retina_scale):
-		#we need to change, calculate the relative change in scale
-		var relative_scale:float = retina_scale / window.content_scale_factor
-
-		#apply the change, as well as resizing window based on previous scale and relative scale
-		window.content_scale_factor = retina_scale
-		window.size = window.size * relative_scale
+	window.size = size * (screen_scale / window.content_scale_factor)
+	window.content_scale_factor = screen_scale
 		
-	window.position = 0.5 * (DisplayServer.screen_get_size() - Vector2i(window.size))
+	window.position = 0.5 * (DisplayServer.screen_get_size() - window.size)

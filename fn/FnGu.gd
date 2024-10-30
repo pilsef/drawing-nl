@@ -4,7 +4,7 @@ class_name FnGu
 
 func exec():
 	
-	var rq_owl = tex(load("res://tex/owl.png"))
+	var rq_owl = img(load("res://tex/owl.png"))
 	
 	return embedded(Color.AQUA, Vector2(100,100), rq_owl).exec()
 	
@@ -43,7 +43,7 @@ static func chained_rq(
 ):
 	return chained(arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), pos, dir)
 	
-static func chained_tex(
+static func chained_img(
 	arr_tex:Array, rq_decorated_unbound:Fn, 
 	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
 ):
@@ -78,7 +78,7 @@ static func chained_rq_2d(
 		pos_1d, dir_1d, pos_2d, dir_2d
 	)
 	
-static func chained_tex_2d(
+static func chained_img_2d(
 	arr_rq_tex:Array, rq_decorated_unbound:Fn, breadth_1d = 3, 
 	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
 	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
@@ -128,7 +128,7 @@ static func box(color:Color, size:Vector2) -> Fn:
 	rq_gu.size = size
 	return rq_gu
 
-static func tex(tex:Texture) -> Fn:
+static func img(tex:Texture) -> Fn:
 	var rq_gu = FnGuFromTex.new()
 	rq_gu.tex = tex
 	return rq_gu

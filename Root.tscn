@@ -1,7 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://dsrjwy4mgqm0f"]
+[gd_scene load_steps=7 format=3 uid="uid://dsrjwy4mgqm0f"]
 
 [ext_resource type="Script" path="res://Boot.gd" id="1"]
+[ext_resource type="Script" path="res://fn/examples/FnGuWikiPage.gd" id="2_gchfa"]
+[ext_resource type="Texture2D" uid="uid://tbr18xvqglpy" path="res://tex/owl.png" id="3_r6bsl"]
+[ext_resource type="Script" path="res://fn/Fn.gd" id="4_4luc1"]
+
+[sub_resource type="Resource" id="Resource_w0of7"]
+script = ExtResource("2_gchfa")
+tex_img = ExtResource("3_r6bsl")
+str_name = "Owl"
+str_classification = "Medium Birdy"
+arr_desc = ["The owl is a night creature.", "It has at least two wings.", "Don't approach the owl or", "else you will regret it."]
+
+[sub_resource type="Resource" id="Resource_fhtdp"]
+script = ExtResource("2_gchfa")
+tex_img = ExtResource("3_r6bsl")
+str_name = "Owl"
+str_classification = "Medium Birdy"
+arr_desc = ["The owl is a night creature.", "It has at least two wings.", "Don't approach the owl or", "else you will regret it."]
 
 [node name="Root" type="Node2D"]
 position = Vector2(-1, 0)
 script = ExtResource("1")
+rq_gu_root = SubResource("Resource_w0of7")
+arr_rq_other = Array[ExtResource("4_4luc1")]([SubResource("Resource_fhtdp")])
