@@ -27,11 +27,9 @@ func _input(event: InputEvent) -> void:
 func set_initial_window(size:Vector2):
 
 	var window = get_window()
-	var screen_scale = DisplayServer.screen_get_scale()
-
 	window.min_size = Vector2(1,1)
 
-	window.size = size * (screen_scale / window.content_scale_factor)
-	window.content_scale_factor = screen_scale
+	window.content_scale_factor = DisplayServer.screen_get_scale()
+	window.size = size * window.content_scale_factor
 		
-	window.position = 0.5 * (DisplayServer.screen_get_size() - window.size)
+	window.position = 0.5 * (DisplayServer.screen_get_size() - Vector2i(window.size))
