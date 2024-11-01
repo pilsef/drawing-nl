@@ -1,4 +1,4 @@
-extends FnGu
+extends Fn
 
 class_name FnGuFromText
 
@@ -17,6 +17,11 @@ func exec():
 
 func create_rq_tex(fontdict:Dictionary, chr):
 	if fontdict.has(chr):
-		return img(fontdict[chr])
+		var rq_tex = FnGuFromTex.new()
+		rq_tex.tex = fontdict[chr]
+		return rq_tex
 	else:
-		return box(Color.WHITE, Vector2(8,8))
+		var rq_tex = FnGuFromColor.new()
+		rq_tex.color = Color.WHITE
+		rq_tex.size = Vector2(8,8)
+		return rq_tex
