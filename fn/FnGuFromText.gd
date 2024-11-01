@@ -1,4 +1,4 @@
-extends Fn
+extends FnGu
 
 class_name FnGuFromText
 
@@ -7,16 +7,16 @@ class_name FnGuFromText
 
 func exec():
 	var gu_chain = FnGuChain.new()
-	var fontdict = rq_fontdict.exec()
+	var fontdict:Dictionary = rq_fontdict.exec()
 	
 	for chr in txt:
-		var tex = fontdict[chr]
-		var rq_tex = create_rq_tex(tex)
+		var rq_tex = create_rq_tex(fontdict, chr)
 		gu_chain.arr_rq_gu.append(rq_tex)
 		
 	return gu_chain.exec()
 
-func create_rq_tex(tex):
-	var rq_tex = FnGuFromTex.new()
-	rq_tex.tex = tex
-	return rq_tex
+func create_rq_tex(fontdict:Dictionary, chr):
+	if fontdict.has(chr):
+		return img(fontdict[chr])
+	else:
+		return box(Color.WHITE, Vector2(8,8))
