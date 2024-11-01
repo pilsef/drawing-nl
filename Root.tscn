@@ -1,15 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsrjwy4mgqm0f"]
+[gd_scene load_steps=5 format=3 uid="uid://dsrjwy4mgqm0f"]
 
 [ext_resource type="Script" path="res://Boot.gd" id="1_i05s4"]
-[ext_resource type="Script" path="res://fn/FnGuFromTextMultiline.gd" id="2_1mnqc"]
+[ext_resource type="Script" path="res://fn/examples/FnGuWikiPage.gd" id="2_dkk1t"]
+[ext_resource type="Texture2D" uid="uid://qs7huv4lsecm" path="res://tex/pufferfish.png" id="3_s612w"]
 
-[sub_resource type="Resource" id="Resource_y3p05"]
-script = ExtResource("2_1mnqc")
-txt = "default text ise default"
-line_len_max = 16
-line_spacing = 0.5
+[sub_resource type="Resource" id="Resource_qi4hs"]
+script = ExtResource("2_dkk1t")
+tex_img = ExtResource("3_s612w")
+str_name = "Pufferfish"
+str_classification = "Aquatic creature"
+str_desc = "The pufferfish is a water creature capable of swimming at high speeds. Don't approach the pufferfish or else you will regret it."
 
 [node name="Root" type="Node2D"]
 position = Vector2(-1, 0)
 script = ExtResource("1_i05s4")
-rq_gu_root = SubResource("Resource_y3p05")
+rq_gu_root = SubResource("Resource_qi4hs")

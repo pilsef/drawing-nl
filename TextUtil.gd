@@ -18,22 +18,25 @@ static func break_into_lines(s:String, line_len_max) -> Array :
 			
 			# runoff space or line break
 			if (s[idx_char] in [' ', '\n']) :
-				line = s.substr(idx_line_start, idx_char)
+				line = sub(s, idx_line_start, idx_char)
 				idx_line_start = idx_char + 1 # skip one
 			# first word on line runs off (biglongwordthatexceedsoneline)
 			elif idx_word_start <= idx_line_start :
-				line = s.substr(idx_line_start, idx_line_start + line_len_max)
+				line = sub(s, idx_line_start, idx_line_start + line_len_max)
 				idx_line_start = idx_line_start + line_len_max # update idx_line_start
-			else : # subsequent word on line runs off
-				line = s.substr(idx_line_start, idx_word_start)
+			else : # current word on line runs off
+				line = sub(s, idx_line_start, idx_word_start)
 				idx_line_start = idx_word_start # update idx_line_start
 		
 			result.append(line)
 	
-	var line_last = s.substr(idx_line_start, s.length())
+	var line_last = sub(s, idx_line_start, s.length())
 	result.append(line_last); # build & add last line
 	
-	return result;
+	return result
+
+static func sub(s, idx_start, idx_end):
+	return s.substr(idx_start, idx_end - idx_start)
 
 static func is_start_of_word(s:String, idx_char) -> bool:
 	if idx_char == 0 :

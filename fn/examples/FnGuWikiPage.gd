@@ -5,12 +5,11 @@ class_name FnGuWikiPage
 @export var tex_img = preload("res://tex/pufferfish.png")
 @export var str_name = "Pufferfish"
 @export var str_classification = "Aquatic creature"
-@export var arr_desc = [
-	"The pufferfish is a water creature",
-	"capable of swimming at high speeds.",
-	"Don't approach the pufferfish or",
-	"else you will regret it."
-]
+@export var str_desc = "" \
+	+ "The pufferfish is a water creature " \
+	+ "capable of swimming at high speeds. " \
+	+ "Don't approach the pufferfish or " \
+	+ "else you will regret it."
 
 func exec():
 
@@ -39,10 +38,7 @@ func exec():
 			space_v(10),
 			textd(str_classification),
 			space_v(20),
-			chained_text(
-				arr_desc,
-				padded_v(0, 4)
-			)
+			textd_multiline(str_desc, 36)
 		]
 	)
 	rq_description = tinted(Color.BLACK, rq_description)

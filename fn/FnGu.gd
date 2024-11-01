@@ -7,7 +7,7 @@ class_name FnGu
 	#var rq_owl = img(load("res://tex/owl.png"))
 	#
 	#return embedded(Color.AQUA, Vector2(100,100), rq_owl).exec()
-	
+
 static func embedded(color:Color, size:Vector2, rq_gu:Fn = null):
 	var rq_embedded = FnGuEmbedded.new()
 	rq_embedded.color = color
@@ -132,7 +132,13 @@ static func img(tex:Texture) -> Fn:
 	var rq_gu = FnGuFromTex.new()
 	rq_gu.tex = tex
 	return rq_gu
-	
+
+static func textd_multiline(txt:String, line_len_max) -> Fn:
+	var rq_gu = FnGuFromTextMultiline.new()
+	rq_gu.txt = txt
+	rq_gu.line_len_max = line_len_max
+	return rq_gu
+
 static func textd(txt:String) -> Fn:
 	var rq_gu = FnGuFromTextd.new()
 	rq_gu.txt = txt
