@@ -15,7 +15,7 @@ func exec():
 		
 	return gu_chain.exec()
 
-func create_rq_tex(fontdict:Dictionary, chr):
+static func create_rq_tex(fontdict:Dictionary, chr):
 	if fontdict.has(chr):
 		var rq_tex = FnGuFromTex.new()
 		rq_tex.tex = fontdict[chr]

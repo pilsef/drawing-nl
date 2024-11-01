@@ -2,11 +2,11 @@ extends Fn
 
 class_name FnGu
 
-func exec():
-	
-	var rq_owl = img(load("res://tex/owl.png"))
-	
-	return embedded(Color.AQUA, Vector2(100,100), rq_owl).exec()
+#func exec():
+	#
+	#var rq_owl = img(load("res://tex/owl.png"))
+	#
+	#return embedded(Color.AQUA, Vector2(100,100), rq_owl).exec()
 	
 static func embedded(color:Color, size:Vector2, rq_gu:Fn = null):
 	var rq_embedded = FnGuEmbedded.new()
