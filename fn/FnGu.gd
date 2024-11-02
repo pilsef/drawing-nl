@@ -8,11 +8,20 @@ class_name FnGu
 	#
 	#return embedded(Color.AQUA, Vector2(100,100), rq_owl).exec()
 
-static func embedded(color:Color, size:Vector2, rq_gu:Fn = null):
+static func embedded_c(color:Color, size:Vector2, rq_gu:Fn = null):
+	return embedded(color, size, Pos.MIDDLE, Dir.NONE, Vector2(), rq_gu)
+
+static func embedded(
+	color:Color, size:Vector2, pos:Vector2, dir:Vector2, offset:Vector2, 
+	rq_gu:Fn = null
+):
 	var rq_embedded = FnGuEmbedded.new()
 	rq_embedded.color = color
 	rq_embedded.size = size
 	rq_embedded.rq_gu = rq_gu
+	rq_embedded.pos = pos
+	rq_embedded.dir = dir
+	rq_embedded.offset = offset
 	return rq_embedded
 	
 static func padgrounded_hv(color:Color, pad_h, pad_v, rq_gu:Fn = null):

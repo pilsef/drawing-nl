@@ -6,17 +6,21 @@ class_name FnGuEmbedded
 @export var color = Color.DARK_RED
 @export var rq_gu: Fn
 
+@export var pos = Pos.MIDDLE
+@export var dir = Dir.NONE
+@export var offset = Vector2()
+
 func exec():
-	var rq_box = FnGuFromColor.new()
-	rq_box.color = color
-	rq_box.size = size
+	var rq_dest = FnGuFromColor.new()
+	rq_dest.color = color
+	rq_dest.size = size
 	
-	var rq_chain = FnGuChain.new()
-	rq_chain.pos_next_rel = Pos.MIDDLE
-	rq_chain.dir_next = Dir.NONE
+	var gu_dest:Guber = rq_dest.exec()
 	
-	#rq_chain.arr_rq_gu = [rq_box, rq_gu]
-	rq_chain.arr_rq_gu.append(rq_box)
-	rq_chain.arr_rq_gu.append(rq_gu)
+	var rect_dest = gu_dest.bounds
+	var pos_dest = rect_dest.position + rect_dest.size * pos + offset
 	
-	return rq_chain.exec()
+	gu_dest.place(rq_gu.exec(), pos_dest, dir)
+	#gu_dest.bounds = rect_dest # revert?
+
+	return gu_dest
