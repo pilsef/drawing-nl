@@ -6,7 +6,7 @@ class_name FnGu
 	#
 	#var rq_owl = img(load("res://tex/owl.png"))
 	#
-	#return embedded(Color.AQUA, Vector2(100,100), rq_owl).exec()
+	#return embedded_c(Color.AQUA, Vector2(100,100), rq_owl).exec()
 
 static func embedded_c(color:Color, size:Vector2, rq_gu:Fn = null):
 	return embedded(color, size, Pos.MIDDLE, Dir.NONE, Vector2(), rq_gu)
