@@ -8,4 +8,8 @@ class_name FnGuScaled
 func exec():
 	var gu = rq_gu.exec()
 	gu.scale_by(Vector2(scale,scale))
-	return gu
+	
+	var gu_new = Guber.new()
+	gu_new.place(gu)
+	
+	return gu_new

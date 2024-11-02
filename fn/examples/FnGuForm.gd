@@ -44,7 +44,6 @@ func exec():
 	return decorated(
 		[
 			padgrounded_hv(Color.FLORAL_WHITE, 20, 80),
-			#padgrounded_a(Color.BLACK, 8),
 			padgrounded_a(Color.BLACK, 10),
 		], rq_content
 	).exec()

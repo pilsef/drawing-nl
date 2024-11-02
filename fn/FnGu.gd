@@ -2,11 +2,21 @@ extends Fn
 
 class_name FnGu
 
-#func exec():
-	#
-	#var rq_owl = img(load("res://tex/owl.png"))
-	#
-	#return embedded_c(Color.AQUA, Vector2(100,100), rq_owl).exec()
+func exec():
+	
+	return textd("hello").exec()
+	
+
+static func with(
+	rq_gu_item:Fn, pos:Vector2, dir:Vector2, offset:Vector2, rq_gu:Fn = null
+):
+	var rq_with = FnGuWith.new()
+	rq_with.rq_gu_item = rq_gu_item
+	rq_with.pos = pos
+	rq_with.dir = dir
+	rq_with.offset = offset
+	rq_with.rq_gu = rq_gu
+	return rq_with
 
 static func embedded_c(color:Color, size:Vector2, rq_gu:Fn = null):
 	return embedded(color, size, Pos.MIDDLE, Dir.NONE, Vector2(), rq_gu)
@@ -18,10 +28,10 @@ static func embedded(
 	var rq_embedded = FnGuEmbedded.new()
 	rq_embedded.color = color
 	rq_embedded.size = size
-	rq_embedded.rq_gu = rq_gu
 	rq_embedded.pos = pos
 	rq_embedded.dir = dir
 	rq_embedded.offset = offset
+	rq_embedded.rq_gu = rq_gu
 	return rq_embedded
 	
 static func padgrounded_hv(color:Color, pad_h, pad_v, rq_gu:Fn = null):
