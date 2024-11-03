@@ -18,6 +18,7 @@ config/icon="res://tex/icon.png"
 
 [debug]
 
+settings/gdscript/max_call_stack=2047
 gdscript/warnings/integer_division=0
 
 [display]

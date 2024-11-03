@@ -1,13 +1,13 @@
 [gd_resource type="Resource" load_steps=9 format=2]
 
-[ext_resource type="Texture2D" uid="uid://ckpu3yvvwhk67" path="res://tex/polar-bear.png" id="1"]
-[ext_resource type="Texture2D" uid="uid://dwhg302a5vugv" path="res://tex/pelican.png" id="2"]
-[ext_resource type="Texture2D" uid="uid://bw4sxjsv0q3c4" path="res://tex/monkey.png" id="3"]
+[ext_resource type="Texture2D" uid="uid://ckpu3yvvwhk67" path="res://tex/animals/polar-bear.png" id="1"]
+[ext_resource type="Texture2D" uid="uid://dwhg302a5vugv" path="res://tex/animals/pelican.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://bw4sxjsv0q3c4" path="res://tex/animals/monkey.png" id="3"]
 [ext_resource type="Script" path="res://fn/FnGuChain2d.gd" id="4"]
-[ext_resource type="Texture2D" uid="uid://tbr18xvqglpy" path="res://tex/owl.png" id="5"]
-[ext_resource type="Texture2D" uid="uid://qs7huv4lsecm" path="res://tex/pufferfish.png" id="6"]
-[ext_resource type="Texture2D" uid="uid://dl4624pv1s6yl" path="res://tex/shark.png" id="7"]
-[ext_resource type="Texture2D" uid="uid://c3hmgrshf8yn3" path="res://tex/rhino.png" id="8"]
+[ext_resource type="Texture2D" uid="uid://tbr18xvqglpy" path="res://tex/animals/owl.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://qs7huv4lsecm" path="res://tex/animals/pufferfish.png" id="6"]
+[ext_resource type="Texture2D" uid="uid://dl4624pv1s6yl" path="res://tex/animals/shark.png" id="7"]
+[ext_resource type="Texture2D" uid="uid://c3hmgrshf8yn3" path="res://tex/animals/rhino.png" id="8"]
 
 [resource]
 script = ExtResource( 4 )

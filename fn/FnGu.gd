@@ -3,9 +3,9 @@ extends Fn
 class_name FnGu
 
 func exec():
-	
+
 	return textd("hello").exec()
-	
+
 
 static func with(
 	rq_gu_item:Fn, pos:Vector2, dir:Vector2, offset:Vector2, rq_gu:Fn = null
@@ -51,7 +51,7 @@ static func padgrounded(
 	)
 
 # top to bottom
-static func decorated(arr_rq_hierarchy:Array[Fn], rq_gu:Fn = null):
+static func decorated(arr_rq_hierarchy:Array, rq_gu:Fn = null):
 	var rq_decorated = FnGuDecorated.new()
 	rq_decorated.arr_rq_hierarchy = arr_rq_hierarchy
 	rq_decorated.rq_gu = rq_gu
@@ -185,10 +185,13 @@ static func padded(left, right, top, bottom, rq_gu:Fn = null) -> Fn:
 	return rq_gu_padded
 
 static func padded_a(amt, rq_gu:Fn = null):
-	return padded(amt, amt, amt, amt, rq_gu);
+	return padded(amt, amt, amt, amt, rq_gu)
+
+static func padded_hv(pad_h, pad_v, rq_gu:Fn = null):
+	return padded(pad_h, pad_h, pad_v, pad_v, rq_gu)
 
 static func padded_h(left, right, rq_gu:Fn = null):
-	return padded(left, right, 0, 0, rq_gu);
+	return padded(left, right, 0, 0, rq_gu)
 
 static func padded_v(top, bottom, rq_gu:Fn = null):
 	return padded(0, 0, top, bottom, rq_gu)

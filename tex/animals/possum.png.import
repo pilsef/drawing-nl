@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ckpu3yvvwhk67"
-path="res://.godot/imported/polar-bear.png-c999b7a884edfd4255b1dd2543843342.ctex"
+uid="uid://bar32tyvspcff"
+path="res://.godot/imported/possum.png-2f1f77c55e89e84cd527cdafd98b9d12.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tex/polar-bear.png"
-dest_files=["res://.godot/imported/polar-bear.png-c999b7a884edfd4255b1dd2543843342.ctex"]
+source_file="res://tex/animals/possum.png"
+dest_files=["res://.godot/imported/possum.png-2f1f77c55e89e84cd527cdafd98b9d12.ctex"]
 
 [params]
 

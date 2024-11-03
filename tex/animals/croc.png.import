@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3hmgrshf8yn3"
-path="res://.godot/imported/rhino.png-69f433b69002e8fd83d8e4ecdc539367.ctex"
+uid="uid://dl5mxayjjwcr2"
+path="res://.godot/imported/croc.png-69b6c75bd8cb92a0418c8e0c88af932d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tex/rhino.png"
-dest_files=["res://.godot/imported/rhino.png-69f433b69002e8fd83d8e4ecdc539367.ctex"]
+source_file="res://tex/animals/croc.png"
+dest_files=["res://.godot/imported/croc.png-69b6c75bd8cb92a0418c8e0c88af932d.ctex"]
 
 [params]
 

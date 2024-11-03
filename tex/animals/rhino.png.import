@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qs7huv4lsecm"
-path="res://.godot/imported/pufferfish.png-20cb648eeb66a1279e7c9279787a453c.ctex"
+uid="uid://c3hmgrshf8yn3"
+path="res://.godot/imported/rhino.png-0c3bd67fd9ccfaec628892b8899e0689.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tex/pufferfish.png"
-dest_files=["res://.godot/imported/pufferfish.png-20cb648eeb66a1279e7c9279787a453c.ctex"]
+source_file="res://tex/animals/rhino.png"
+dest_files=["res://.godot/imported/rhino.png-0c3bd67fd9ccfaec628892b8899e0689.ctex"]
 
 [params]
 

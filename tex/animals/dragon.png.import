@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://betc1sdab514p"
-path="res://.godot/imported/lightbulb.png-9412629c985ec0e1d74e92ef14a21284.ctex"
+uid="uid://dy8wumekn3wxn"
+path="res://.godot/imported/dragon.png-89ce60449369bca620bc824070d373df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tex/lightbulb.png"
-dest_files=["res://.godot/imported/lightbulb.png-9412629c985ec0e1d74e92ef14a21284.ctex"]
+source_file="res://tex/animals/dragon.png"
+dest_files=["res://.godot/imported/dragon.png-89ce60449369bca620bc824070d373df.ctex"]
 
 [params]
 

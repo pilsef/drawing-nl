@@ -6,16 +6,14 @@ func exec():
 	
 	var make_rq_textfield = func(string) :
 		
-		var rq_box = padgrounded_a(Color.DIM_GRAY, 2,
-			box(Color.GHOST_WHITE, Vector2(250, 32))
-		)
+		var rq_text = tinted(Color.BLACK, textd(string))
 		
-		return chained_rq(
+		return decorated(
 			[
-				tinted(Color.BLACK, textd(string)),
-				space_v(6),
-				rq_box
-			]
+				padgrounded_a(Color.DIM_GRAY, 2),
+				with(rq_text, Pos.TOP_LEFT, Dir.UP_RIGHT, Vector2(0, -6))
+			],
+			box(Color.GHOST_WHITE, Vector2(250, 32))
 		)
 	
 	var rq_textfields = chained_rq(

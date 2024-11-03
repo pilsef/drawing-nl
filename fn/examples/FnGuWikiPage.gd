@@ -2,7 +2,7 @@ extends FnGu
 
 class_name FnGuWikiPage
 
-@export var tex_img = preload("res://tex/pufferfish.png")
+@export var tex_img = preload("res://tex/animals/pufferfish.png")
 @export var str_name = "Pufferfish"
 @export var str_classification = "Aquatic creature"
 @export var str_desc = "" \

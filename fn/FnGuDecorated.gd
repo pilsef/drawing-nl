@@ -2,7 +2,7 @@ extends Fn
 
 class_name FnGuDecorated
 
-@export var arr_rq_hierarchy : Array[Fn]
+@export var arr_rq_hierarchy : Array # [Fn]
 @export var rq_gu : Fn
 
 func exec():

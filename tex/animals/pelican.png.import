@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dl4624pv1s6yl"
-path="res://.godot/imported/shark.png-7f4c171f49ec30184c8961a30156988f.ctex"
+uid="uid://dwhg302a5vugv"
+path="res://.godot/imported/pelican.png-f586ccdec304fe7e7c15dd2040964538.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tex/shark.png"
-dest_files=["res://.godot/imported/shark.png-7f4c171f49ec30184c8961a30156988f.ctex"]
+source_file="res://tex/animals/pelican.png"
+dest_files=["res://.godot/imported/pelican.png-f586ccdec304fe7e7c15dd2040964538.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bw4sxjsv0q3c4"
-path="res://.godot/imported/monkey.png-2c8274b40c445c4d53d705a514d9d59f.ctex"
+uid="uid://chnrvrynn1vfr"
+path="res://.godot/imported/bee.png-e514677d44f1c07b933449d94c8809ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tex/monkey.png"
-dest_files=["res://.godot/imported/monkey.png-2c8274b40c445c4d53d705a514d9d59f.ctex"]
+source_file="res://tex/animals/bee.png"
+dest_files=["res://.godot/imported/bee.png-e514677d44f1c07b933449d94c8809ea.ctex"]
 
 [params]
 
