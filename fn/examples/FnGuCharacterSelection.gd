@@ -1,12 +1,12 @@
 extends FnGu
 
-class_name FnCharacterSelection
+class_name FnGuCharacterSelection
 
 @export var tex_animal_selected = load("res://tex/animals/pelican.png")
 
 func exec():
 	
-	var arr_tex_animals = load_pngs_at("res://tex/animals/")
+	var arr_tex_animals = LoadUtil.load_pngs_at("res://tex/animals/")
 	
 	var arr_rq_animals = []
 	for tex_animal in arr_tex_animals:
@@ -66,17 +66,3 @@ static func get_rq_animal(tex_char, tex_char_selected):
 		],
 		img(tex_char)
 	)
-		
-
-static func load_pngs_at(path:String):
-	var dir = DirAccess.open(path)
-	if !dir:
-		return []
-		
-	var arr = []
-
-	for file in dir.get_files():
-		if file.ends_with(".png"):
-			arr.append(load(path + file))
-	
-	return arr

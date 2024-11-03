@@ -3,9 +3,7 @@ extends Fn
 class_name FnGu
 
 func exec():
-
 	return textd("hello").exec()
-
 
 static func with(
 	rq_gu_item:Fn, pos:Vector2, dir:Vector2, offset:Vector2, rq_gu:Fn = null
