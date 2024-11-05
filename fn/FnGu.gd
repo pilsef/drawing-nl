@@ -3,7 +3,14 @@ extends Fn
 class_name FnGu
 
 func exec():
-	return textd("hello").exec()
+	return bordered(Color.RED, 3, textd("hello")).exec()
+	
+static func bordered(color:Color, width:int, rq_gu:Fn = null):
+	var rq_bordered = FnGuBordered.new()
+	rq_bordered.color = color
+	rq_bordered.width = width
+	rq_bordered.rq_gu = rq_gu
+	return rq_bordered
 
 static func with(
 	rq_gu_item:Fn, pos:Vector2, dir:Vector2, offset:Vector2, rq_gu:Fn = null

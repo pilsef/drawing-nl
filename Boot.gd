@@ -8,6 +8,7 @@ func _ready():
 	var gu_root = rq_gu_root.exec()
 	add_child(gu_root)
 	gu_root.position -= gu_root.bounds.position
+	gu_root.position.x += 1
 
 	set_initial_window(gu_root.bounds.size)
 	

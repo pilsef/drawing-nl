@@ -10,9 +10,7 @@ func exec():
 	var img = Image.create_empty(size.x, size.y, false, Image.FORMAT_RGBA8)
 	img.fill(color)
 	
-	var tex = ImageTexture.create_from_image(img)
-	
 	var rq_gu = FnGuFromTex.new()
-	rq_gu.tex = tex
+	rq_gu.tex = ImageTexture.create_from_image(img)
 	
 	return rq_gu.exec()
