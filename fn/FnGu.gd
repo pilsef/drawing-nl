@@ -3,7 +3,7 @@ extends Fn
 class_name FnGu
 
 func exec():
-	return bordered(Color.RED, 3, textd("hello")).exec()
+	return img(load("res://tex/animals/dragon.png")).exec()
 	
 static func bordered(color:Color, width:int, rq_gu:Fn = null):
 	var rq_bordered = FnGuBordered.new()
