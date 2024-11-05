@@ -20,9 +20,8 @@ func exec():
 		[
 			scaled(3),
 			padgrounded_hv(Color.DEEP_SKY_BLUE, 10, 20),
-			padgrounded_a(Color.WHITE, 4),
+			bordered(Color.WHITE, 4),
 			with(textd(name), Pos.BOTTOM_MIDDLE, Dir.DOWN, Vector2(0,10)),
-			backgrounded(Color.BLACK)
 		], 
 		img(tex_animal_selected)
 	)
