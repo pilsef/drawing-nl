@@ -2,7 +2,7 @@ extends FnGu
 
 class_name FnGuCharacterSelection
 
-@export var tex_animal_selected = load("res://tex/animals/pelican.png")
+@export var tex_animal_selected = preload("res://tex/animals/pelican.png")
 
 func exec():
 	

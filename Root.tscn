@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsrjwy4mgqm0f"]
+[gd_scene load_steps=5 format=3 uid="uid://dsrjwy4mgqm0f"]
 
 [ext_resource type="Script" path="res://Boot.gd" id="1_i05s4"]
 [ext_resource type="Script" path="res://fn/examples/FnGuCharacterSelection.gd" id="2_jdhiq"]
+[ext_resource type="Texture2D" uid="uid://dwhg302a5vugv" path="res://tex/animals/pelican.png" id="3_1hj1m"]
 
 [sub_resource type="Resource" id="Resource_45duj"]
 script = ExtResource("2_jdhiq")
+tex_animal_selected = ExtResource("3_1hj1m")
 
 [node name="Root" type="Node2D"]
 position = Vector2(-1, 0)
