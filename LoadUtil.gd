@@ -1,9 +1,9 @@
 class_name LoadUtil
 
-static func load_pngs_at(path:String):
+static func load_pngs_at(path:String) -> Array:
 	return load_files_at_with_extension(path, ".png")
 
-static func load_files_at_with_extension(path, extension):
+static func load_files_at_with_extension(path, extension) -> Array:
 	var dir = DirAccess.open(path)
 	if !dir:
 		return []

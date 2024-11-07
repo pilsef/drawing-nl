@@ -3,7 +3,7 @@ extends Fn
 class_name FnGu
 
 func exec():
-	return img(load("res://tex/animals/dragon.png")).exec()
+	return img(load("res://tex/animals/croc.png")).exec()
 	
 static func bordered(color:Color, width:int, rq_gu:Fn = null):
 	var rq_bordered = FnGuBordered.new()
@@ -80,12 +80,12 @@ static func chained_text(
 	return chained(arr_text, FnGuFromTextd, rq_decorated_unbound, pos, dir)
 
 static func chained(
-	arr_baselem:Array, class_baselem, rq_decorated_unbound:Fn, 
+	arr_baselem:Array, fn_gu_from_baselem, rq_decorated_unbound:Fn, 
 	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
 ) -> Fn:
 	var rq_chain = FnGuChainDecorated.new()
 	rq_chain.arr_baselem = arr_baselem
-	rq_chain.class_baselem = class_baselem
+	rq_chain.fn_gu_from_baselem = fn_gu_from_baselem
 	rq_chain.rq_decorated_unbound = rq_decorated_unbound
 	rq_chain.pos = pos
 	rq_chain.dir = dir
@@ -123,14 +123,14 @@ static func chained_text_2d(
 	)
 
 static func chained_2d(
-	arr_baselem:Array, class_baselem, rq_decorated_unbound:Fn, breadth_1d = 3, 
+	arr_baselem:Array, fn_gu_from_baselem, rq_decorated_unbound:Fn, breadth_1d = 3, 
 	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
 	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
 ) -> Fn:
 
 	var rq_chain_2d = FnGuChain2dDecorated.new()
 	rq_chain_2d.arr_baselem = arr_baselem
-	rq_chain_2d.class_baselem = class_baselem
+	rq_chain_2d.fn_gu_from_baselem = fn_gu_from_baselem
 	rq_chain_2d.rq_decorated_unbound = rq_decorated_unbound
 	rq_chain_2d.breadth_1d = breadth_1d
 	rq_chain_2d.pos_1d = pos_1d

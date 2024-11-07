@@ -6,13 +6,9 @@ class_name FnGuCharacterSelection
 
 func exec():
 	
-	var arr_tex_animals = LoadUtil.load_pngs_at("res://tex/animals/")
-	
-	var arr_rq_animals = []
-	for tex_animal in arr_tex_animals:
-		var rq_animal = get_rq_animal(tex_animal, tex_animal_selected)
-		arr_rq_animals.append(rq_animal)
-	
+	var arr_rq_animals = LoadUtil.load_pngs_at("res://tex/animals/").map(
+		func(tex): return get_rq_animal(tex, tex_animal_selected)
+	)
 	var rq_animals = chained_rq_2d(arr_rq_animals, 5)
 	
 	var name = tex_animal_selected.resource_path.get_file().get_basename()
@@ -46,7 +42,7 @@ func exec():
 		rq_content
 	).exec()
 
-static func get_rq_animal(tex_char, tex_char_selected):	
+static func get_rq_animal(tex_char, tex_char_selected):
 	var color_primary
 	var color_secondary
 

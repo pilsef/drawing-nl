@@ -6,7 +6,7 @@ class_name FnGuChainDecorated
 @export var dir = Dir.DOWN_RIGHT
 
 @export var arr_baselem = []
-@export var class_baselem : GDScript
+@export var fn_gu_from_baselem : GDScript
 @export var rq_decorated_unbound : Fn
 
 func exec():
@@ -16,7 +16,7 @@ func exec():
 	rq_gu_chain.dir_next = dir
 	
 	for baselem in arr_baselem:
-		var rq_gu = build_rq(baselem, class_baselem, rq_decorated_unbound)
+		var rq_gu = build_rq(baselem, fn_gu_from_baselem, rq_decorated_unbound)
 		rq_gu_chain.arr_rq_gu.append(rq_gu)
 		
 	return rq_gu_chain.exec()
@@ -24,8 +24,8 @@ func exec():
 #static func dir_to_pos_next_rel(dir:Vector2):
 	#return (dir + Vector2(1,1)) * 0.5
 	
-static func build_rq(baselem, class_baselem, rq_decorated_unbound):
-	var rq_base = class_baselem.new()
+static func build_rq(baselem, fn_gu_from_baselem, rq_decorated_unbound):
+	var rq_base = fn_gu_from_baselem.new()
 	assign_baselem(rq_base, baselem)
 	
 	var rq_decorated = rq_decorated_unbound.duplicate(true)
