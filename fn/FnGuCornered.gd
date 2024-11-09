@@ -11,7 +11,7 @@ func exec():
 	
 	var gu_base:Guber = rq_gu.exec()
 	
-	var rect_border = gu_base.bounds.grow(width)
+	var rect_border = Rect2(gu_base.bounds)
 	rect_border.position = Vector2.ZERO
 	
 	var size = rect_border.size
@@ -39,8 +39,8 @@ func exec():
 	
 	var rq_gu_border = FnGuFromTex.new()
 	rq_gu_border.tex = ImageTexture.create_from_image(img)
-	
 	var gu_border:Guber = rq_gu_border.exec()
-	gu_border.place(gu_base, Vector2(width, width), Dir.DOWN_RIGHT)
 	
-	return gu_border
+	gu_base.place(gu_border, gu_base.bounds.position, Dir.DOWN_RIGHT)
+	
+	return gu_base
