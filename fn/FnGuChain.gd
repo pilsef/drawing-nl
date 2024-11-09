@@ -10,10 +10,10 @@ class_name FnGuChain
 func exec():
 	
 	var gu_chain = Guber.new()
-	var pos = Vector2(0,0) # doesn't matter what it is initially (same for dir)
+	var rect_prev = Rect2()
 	
 	for rq_gu in arr_rq_gu:
-		var rect_ch = gu_chain.place(rq_gu.exec(), pos, dir_next)
-		pos = rect_ch.position + rect_ch.size * pos_next_rel
+		var pos_next_abs = rect_prev.position + rect_prev.size * pos_next_rel
+		rect_prev = gu_chain.place(rq_gu.exec(), pos_next_abs, dir_next)
 
 	return gu_chain

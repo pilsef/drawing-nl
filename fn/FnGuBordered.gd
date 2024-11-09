@@ -20,8 +20,8 @@ func exec():
 	var img = Image.create_empty(size.x, size.y, false, Image.FORMAT_RGBA8)
 	img.fill_rect(rect_border.grow_side(SIDE_RIGHT, shrink_h), color)
 	img.fill_rect(rect_border.grow_side(SIDE_LEFT, shrink_h), color)
-	img.fill_rect(rect_border.grow_side(SIDE_TOP, shrink_v), color)
 	img.fill_rect(rect_border.grow_side(SIDE_BOTTOM, shrink_v), color)
+	img.fill_rect(rect_border.grow_side(SIDE_TOP, shrink_v), color)
 	
 	var rq_gu_border = FnGuFromTex.new()
 	rq_gu_border.tex = ImageTexture.create_from_image(img)

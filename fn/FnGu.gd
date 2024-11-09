@@ -3,7 +3,20 @@ extends Fn
 class_name FnGu
 
 func exec():
-	return img(load("res://tex/animals/croc.png")).exec()
+	return decorated(
+		[
+			cornered(Color.RED, 1, 4),
+			scaled(10),
+		], img(load("res://tex/animals/croc.png"))
+	).exec()
+
+static func cornered(color:Color, width:int, length:int, rq_gu:Fn = null):
+	var rq_cornered = FnGuCornered.new()
+	rq_cornered.color = color
+	rq_cornered.width = width
+	rq_cornered.length = length
+	rq_cornered.rq_gu = rq_gu
+	return rq_cornered
 	
 static func bordered(color:Color, width:int, rq_gu:Fn = null):
 	var rq_bordered = FnGuBordered.new()
