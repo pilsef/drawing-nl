@@ -3,7 +3,7 @@ Drawing-NL (DNL) is a framework for Godot allowing users to build static images 
 Complex images such as UI mockups are possible with very little code.
 
 Please see the Wiki page for examples:
-https://bitbucket.org/Pilsef/drawing-nl/wiki/Home
+https://github.com/pilsef/drawing-nl/wiki
 
 ### Or [watch the video](http://youtu.be/ZGIs2n8PU1A).
 
