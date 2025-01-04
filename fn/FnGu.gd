@@ -3,12 +3,16 @@ extends Fn
 class_name FnGu
 
 func exec():
-	return decorated(
+	return scaled(6, rotated(245, chained_img(
 		[
-			cornered(Color.RED, 1, 4),
-			scaled(10),
-		], img(load("res://tex/animals/croc.png"))
-	).exec()
+			load("res://tex/animals/croc.png"),
+			load("res://tex/animals/bee.png"),
+			load("res://tex/animals/croc.png")
+		],
+		decorated([]),
+		Pos.TOP_LEFT,
+		Dir.LEFT
+	))).exec()
 
 static func cornered(color:Color, width:int, length:int, rq_gu:Fn = null):
 	var rq_cornered = FnGuCornered.new()
@@ -76,25 +80,25 @@ static func decorated(arr_rq_hierarchy:Array, rq_gu:Fn = null):
 	return rq_decorated
 
 static func chained_rq(
-	arr_rq_gu:Array, pos = Pos.BOTTOM_LEFT, dir = Dir.DOWN_RIGHT
+	arr_rq_gu:Array, pos = Pos.BOTTOM_LEFT, dir = Dir.DOWN_RIGHT, offset = Vector2()
 ):
-	return chained(arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), pos, dir)
+	return chained(arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), pos, dir, offset)
 	
 static func chained_img(
 	arr_tex:Array, rq_decorated_unbound:Fn, 
-	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
+	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT, offset = Vector2()
 ):
-	return chained(arr_tex, FnGuFromTex, rq_decorated_unbound, pos, dir)
+	return chained(arr_tex, FnGuFromTex, rq_decorated_unbound, pos, dir, offset)
 	
 static func chained_text(
 	arr_text:Array, rq_decorated_unbound:Fn,
-	pos = Pos.BOTTOM_LEFT, dir = Dir.DOWN_RIGHT
+	pos = Pos.BOTTOM_LEFT, dir = Dir.DOWN_RIGHT, offset = Vector2()
 ):
-	return chained(arr_text, FnGuFromTextd, rq_decorated_unbound, pos, dir)
+	return chained(arr_text, FnGuFromTextd, rq_decorated_unbound, pos, dir, offset)
 
 static func chained(
 	arr_baselem:Array, fn_gu_from_baselem, rq_decorated_unbound:Fn, 
-	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT
+	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT, offset = Vector2()
 ) -> Fn:
 	var rq_chain = FnGuChainDecorated.new()
 	rq_chain.arr_baselem = arr_baselem
@@ -102,6 +106,7 @@ static func chained(
 	rq_chain.rq_decorated_unbound = rq_decorated_unbound
 	rq_chain.pos = pos
 	rq_chain.dir = dir
+	rq_chain.offset = offset
 
 	return rq_chain
 	
@@ -180,6 +185,12 @@ static func textd(txt:String) -> Fn:
 	var rq_gu = FnGuFromTextd.new()
 	rq_gu.txt = txt
 	return rq_gu
+
+static func rotated(amt:float, rq_gu:Fn = null):
+	var rq_rotated = FnGuRotated.new()
+	rq_rotated.amt = amt
+	rq_rotated.rq_gu = rq_gu
+	return rq_rotated
 
 static func tinted(color:Color, rq_gu:Fn = null) -> Fn:
 	var rq_gu_tinted = FnGuTinted.new()

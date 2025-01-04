@@ -4,6 +4,7 @@ class_name FnGuChainDecorated
 
 @export var pos = Pos.TOP_RIGHT
 @export var dir = Dir.DOWN_RIGHT
+@export var offset = Vector2()
 
 @export var arr_baselem = []
 @export var fn_gu_from_baselem : GDScript
@@ -14,6 +15,7 @@ func exec():
 	var rq_gu_chain = FnGuChain.new()
 	rq_gu_chain.pos_next_rel = pos # dir_to_pos_next_rel(dir)
 	rq_gu_chain.dir_next = dir
+	rq_gu_chain.offset = offset
 	
 	for baselem in arr_baselem:
 		var rq_gu = build_rq(baselem, fn_gu_from_baselem, rq_decorated_unbound)
@@ -35,5 +37,6 @@ static func build_rq(baselem, fn_gu_from_baselem, rq_decorated_unbound):
 
 static func assign_baselem(rq_base:Fn, baselem) :
 	for prop in rq_base.get_property_list():
-		if prop.usage == 4102:
+		if prop.usage == 4102: # && rq_base.get(prop["name"]) == null:
 			rq_base.set(prop["name"], baselem)
+			break
