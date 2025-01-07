@@ -6,8 +6,8 @@ class_name FnGuFromText
 @export var txt = "default text"
 
 func exec():
-	var gu_chain = FnGuChain.new()
 	var fontdict:Dictionary = rq_fontdict.exec()
+	var gu_chain = FnGuChain.new()
 	
 	for chr in txt:
 		var rq_tex = create_rq_tex(fontdict, chr)

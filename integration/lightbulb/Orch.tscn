@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb2f7d0xceen5"]
+
+[ext_resource type="Script" path="res://integration/lightbulb/Orch.gd" id="1_4lclk"]
+
+[node name="Orchestrator" type="Node"]
+script = ExtResource("1_4lclk")

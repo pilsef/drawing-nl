@@ -10,7 +10,7 @@ func exec():
 	
 	var rq_bg = FnGuFromColor.new()
 	rq_bg.color = color
-	rq_bg.size = gu_foreground.bounds.size
+	rq_bg.size = gu_foreground.bounds.size.ceil()
 	var gu_background = rq_bg.exec()
 	
 	var gu_result = Guber.new()
