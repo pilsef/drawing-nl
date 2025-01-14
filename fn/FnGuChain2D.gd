@@ -13,16 +13,15 @@ class_name FnGuChain2d
 
 func exec():
 
-	var ctr = 0
 	var num_rows = ceil(arr_rq_gu.size() as float / breadth_1d)
 	var rq_chain_2d = create_rq_chain(pos_2d_next_rel, dir_2d_next)
 
-	for row in num_rows:
+	for idx_row in num_rows:
 		var rq_chain_1d = create_rq_chain_1d(
-			arr_rq_gu, ctr * breadth_1d, breadth_1d, pos_1d_next_rel, dir_1d_next
+			arr_rq_gu, idx_row * breadth_1d, breadth_1d, pos_1d_next_rel, 
+			dir_1d_next
 		)
 		rq_chain_2d.arr_rq_gu.append(rq_chain_1d)
-		ctr += 1
 
 	return rq_chain_2d.exec()
 
