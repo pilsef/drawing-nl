@@ -32,11 +32,16 @@ func exec():
 	
 	initialize_matrices(mx_gus, mx_dim, num_rows, num_cols)
 	
-	# for each row, find the max height & update dimensions matrix
-	calc_heights(mx_gus, mx_dim, num_rows, num_cols)
-	
-	# for each col, find the max width & update dimensions matrix
-	calc_widths(mx_gus, mx_dim, num_rows, num_cols)
+	if dir_1d == Dir.UP || dir_1d == Dir.DOWN:
+		# for each row, find the max width & update dimensions matrix
+		calc_widths_by_row(mx_gus, mx_dim, num_rows, num_cols)
+		# for each col, find the max height & update dimensions matrix
+		calc_heights_by_col(mx_gus, mx_dim, num_rows, num_cols)
+	else:
+		# for each row, find the max height & update dimensions matrix
+		calc_heights_by_row(mx_gus, mx_dim, num_rows, num_cols)
+		# for each col, find the max width & update dimensions matrix
+		calc_widths_by_col(mx_gus, mx_dim, num_rows, num_cols)
 	
 	# for each matrix item, look up dimensions & embed within those dimensions
 	# (add the result to an array)
@@ -52,10 +57,8 @@ func initialize_matrices(mx_gus, mx_dim, num_rows, num_cols):
 		mx_gus[idx_row][idx_col] = arr_rq_gu[idx].exec()
 		mx_dim[idx_row][idx_col] = Vector2()
 
-func calc_heights(mx_gus, mx_dim, num_rows, num_cols):
+func calc_heights_by_row(mx_gus, mx_dim, num_rows, num_cols):
 	for idx_row in num_rows:
-		var row_gus = mx_gus[idx_row]
-		var row_dim = mx_dim[idx_row]
 		
 		var max_height = 0
 		for idx_col in num_cols:
@@ -70,7 +73,7 @@ func calc_heights(mx_gus, mx_dim, num_rows, num_cols):
 				continue
 			mx_dim[idx_row][idx_col].y = max_height
 			
-func calc_widths(mx_gus, mx_dim, num_rows, num_cols):
+func calc_widths_by_col(mx_gus, mx_dim, num_rows, num_cols):
 	for idx_col in num_cols:
 		
 		var max_width = 0
@@ -85,6 +88,38 @@ func calc_widths(mx_gus, mx_dim, num_rows, num_cols):
 			if mx_dim[idx_row][idx_col] == null:
 				continue
 			mx_dim[idx_row][idx_col].x = max_width
+			
+func calc_widths_by_row(mx_gus, mx_dim, num_rows, num_cols):
+	for idx_row in num_rows:
+		
+		var max_width = 0
+		for idx_col in num_cols:
+			var gu = mx_gus[idx_row][idx_col]
+			if gu == null:
+				continue
+			if gu.bounds.size.x > max_width:
+				max_width = gu.bounds.size.x
+		
+		for idx_col in num_cols:
+			if mx_dim[idx_row][idx_col] == null:
+				continue
+			mx_dim[idx_row][idx_col].x = max_width
+			
+func calc_heights_by_col(mx_gus, mx_dim, num_rows, num_cols):
+	for idx_col in num_cols:
+		
+		var max_height = 0
+		for idx_row in num_rows:
+			var gu = mx_gus[idx_row][idx_col]
+			if gu == null:
+				continue
+			if gu.bounds.size.y > max_height:
+				max_height = gu.bounds.size.y
+				
+		for idx_row in num_rows:
+			if mx_dim[idx_row][idx_col] == null:
+				continue
+			mx_dim[idx_row][idx_col].y = max_height
 			
 func generate_arr_rq_cells(mx_gus, mx_dim, num_rows, num_cols):
 	var arr_rq_cells = []
