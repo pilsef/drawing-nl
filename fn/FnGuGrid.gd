@@ -9,17 +9,7 @@ class_name FnGuGrid
 @export var pos = Pos.MIDDLE
 @export var dir = Dir.NONE
 
-@export var arr_rq_gu : Array[Fn]
-#var arr_rq_gu = [
-	#scaled(2, img(load("res://tex/animals/owl.png"))),
-	#scaled(2, img(load("res://tex/animals/bee.png"))),
-	#scaled(3, img(load("res://tex/animals/pufferfish.png"))),
-	#rotated(15, textd("Hello world!")),
-	#textd_multiline("The quick brown fox jumps over the lazy dog", 20),
-	#scaled(1, img(load("res://tex/animals/owl.png"))),
-	#scaled(1, img(load("res://tex/animals/bee.png"))),
-	#scaled(1, img(load("res://tex/animals/pufferfish.png")))
-#]
+@export var arr_rq_gu = []
 
 func exec():
 	var num_rows = ceil(arr_rq_gu.size() as float / breadth_1d)
