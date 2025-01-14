@@ -30,7 +30,7 @@ func exec():
 	var mx_gus = Matrix.create(num_rows, num_cols)
 	var mx_dim = Matrix.create(num_rows, num_cols)
 	
-	initialize_matrices(mx_gus, mx_dim, num_rows, num_cols)
+	initialize_matrices(mx_gus, mx_dim, num_cols)
 	
 	if dir_1d == Dir.UP || dir_1d == Dir.DOWN:
 		# for each row, find the max width & update dimensions matrix
@@ -50,14 +50,14 @@ func exec():
 	# pass that array to FnGuChain2D (using logic to calculate pos/dir)
 	return create_rq_grid(arr_rq_cells).exec()
 	
-func initialize_matrices(mx_gus, mx_dim, num_rows, num_cols):
+func initialize_matrices(mx_gus, mx_dim, num_cols):
 	for idx in arr_rq_gu.size():
 		var idx_row:int = idx / num_cols
 		var idx_col:int = idx % num_cols
 		mx_gus[idx_row][idx_col] = arr_rq_gu[idx].exec()
 		mx_dim[idx_row][idx_col] = Vector2()
 
-func calc_heights_by_row(mx_gus, mx_dim, num_rows, num_cols):
+static func calc_heights_by_row(mx_gus, mx_dim, num_rows, num_cols):
 	for idx_row in num_rows:
 		
 		var max_height = 0
@@ -73,7 +73,7 @@ func calc_heights_by_row(mx_gus, mx_dim, num_rows, num_cols):
 				continue
 			mx_dim[idx_row][idx_col].y = max_height
 			
-func calc_widths_by_col(mx_gus, mx_dim, num_rows, num_cols):
+static func calc_widths_by_col(mx_gus, mx_dim, num_rows, num_cols):
 	for idx_col in num_cols:
 		
 		var max_width = 0
@@ -89,7 +89,7 @@ func calc_widths_by_col(mx_gus, mx_dim, num_rows, num_cols):
 				continue
 			mx_dim[idx_row][idx_col].x = max_width
 			
-func calc_widths_by_row(mx_gus, mx_dim, num_rows, num_cols):
+static func calc_widths_by_row(mx_gus, mx_dim, num_rows, num_cols):
 	for idx_row in num_rows:
 		
 		var max_width = 0
@@ -105,7 +105,7 @@ func calc_widths_by_row(mx_gus, mx_dim, num_rows, num_cols):
 				continue
 			mx_dim[idx_row][idx_col].x = max_width
 			
-func calc_heights_by_col(mx_gus, mx_dim, num_rows, num_cols):
+static func calc_heights_by_col(mx_gus, mx_dim, num_rows, num_cols):
 	for idx_col in num_cols:
 		
 		var max_height = 0
@@ -144,22 +144,19 @@ func create_rq_grid(arr_rq_cells):
 	var rq_chain = FnGuChain2d.new()
 	rq_chain.arr_rq_gu = arr_rq_cells
 	rq_chain.breadth_1d = breadth_1d
-	rq_chain.pos_1d_next_rel = dir_to_pos_next_rel(dir_1d)
+	rq_chain.pos_1d_next_rel = (dir_1d + Vector2(1,1)) * 0.5
 	rq_chain.dir_1d_next = dir_1d
-	rq_chain.pos_2d_next_rel = dir_to_pos_2d_next_rel(dir_1d, dir_2d)
-	rq_chain.dir_2d_next = dir_to_dir_2d_next(dir_1d, dir_2d)
+	rq_chain.pos_2d_next_rel = calc_pos_2d()
+	rq_chain.dir_2d_next = calc_dir_2d()
 	
 	return rq_chain
 
-static func dir_to_pos_next_rel(dir:Vector2):
-	return (dir + Vector2(1,1)) * 0.5
-
-static func dir_to_dir_2d_next(dir_1d:Vector2, dir_2d:Vector2):	
+func calc_dir_2d():	
 	match (dir_2d):
 		Vector2.LEFT, Vector2.RIGHT: return Vector2(dir_2d.x, dir_1d.y)
 		Vector2.UP, Vector2.DOWN: return Vector2(dir_1d.x, dir_2d.y)
 		
-static func dir_to_pos_2d_next_rel(dir_1d:Vector2, dir_2d:Vector2):
+func calc_pos_2d():
 	match (dir_2d):
 		Vector2.LEFT, Vector2.RIGHT: 
 			return (Vector2(dir_2d.x, -dir_1d.y) + Vector2(1,1)) * 0.5
