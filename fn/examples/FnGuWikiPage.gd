@@ -27,7 +27,8 @@ func exec():
 	var rq_photo = decorated(
 		[
 			scaled(6),
-			embedded_c(Color.SKY_BLUE, Vector2(340, 220)),
+			embedded_c(Vector2(340, 220)),
+			backgrounded(Color.SKY_BLUE),
 			padgrounded_a(Color.BLACK, 10)
 		], img(tex_img)
 	)

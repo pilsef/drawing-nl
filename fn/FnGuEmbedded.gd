@@ -3,7 +3,6 @@ extends Fn
 class_name FnGuEmbedded
 
 @export var size = Vector2(100,100)
-@export var color = Color.DARK_RED
 @export var rq_gu: Fn
 
 @export var pos = Pos.MIDDLE
@@ -12,7 +11,7 @@ class_name FnGuEmbedded
 
 func exec():
 	var rq_dest = FnGuFromColor.new()
-	rq_dest.color = color
+	rq_dest.color = Color(0,0,0,0)
 	rq_dest.size = size
 	
 	var gu_dest:Guber = rq_dest.exec()

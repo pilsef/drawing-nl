@@ -54,15 +54,14 @@ static func with(
 	rq_with.rq_gu = rq_gu
 	return rq_with
 
-static func embedded_c(color:Color, size:Vector2, rq_gu:Fn = null):
-	return embedded(color, size, Pos.MIDDLE, Dir.NONE, Vector2(), rq_gu)
+static func embedded_c(size:Vector2, rq_gu:Fn = null):
+	return embedded(size, Pos.MIDDLE, Dir.NONE, Vector2(), rq_gu)
 
 static func embedded(
-	color:Color, size:Vector2, pos:Vector2, dir:Vector2, offset:Vector2, 
+	size:Vector2, pos:Vector2, dir:Vector2, offset:Vector2, 
 	rq_gu:Fn = null
 ):
 	var rq_embedded = FnGuEmbedded.new()
-	rq_embedded.color = color
 	rq_embedded.size = size
 	rq_embedded.pos = pos
 	rq_embedded.dir = dir

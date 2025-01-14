@@ -123,7 +123,7 @@ func generate_arr_rq_cells(mx_gus, mx_dim, num_rows, num_cols):
 			gu.queue_free()
 			
 			var rq_gu_cell = embedded(
-				Color(0,0,0,0), mx_dim[idx_row][idx_col], pos, dir, Vector2(), rq_gu
+				mx_dim[idx_row][idx_col], pos, dir, Vector2(), rq_gu
 			)
 			
 			#arr_rq_cells.append(bordered(Color.RED, 1, rq_gu_cell))
