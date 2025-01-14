@@ -31,6 +31,11 @@ func scale_by(ratio:Vector2):
 	
 	bounds.position *= ratio
 	bounds.size *= ratio
+	
+func rotate_by(degrees):
+	var radians = deg_to_rad(degrees)
+	rotate(radians)
+	bounds *= Transform2D(radians, Vector2())
 
 func to_rq():
 	var ps_gu = PackedScene.new()
