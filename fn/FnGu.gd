@@ -2,32 +2,6 @@ extends Fn
 
 class_name FnGu
 
-func exec():
-	
-	return gridded([
-		scaled(2, img(load("res://tex/animals/owl.png"))),
-		scaled(2, img(load("res://tex/animals/bee.png"))),
-		scaled(3, img(load("res://tex/animals/pufferfish.png"))),
-		rotated(15, textd("Hello world!")),
-		textd_multiline("The quick brown fox jumps over the lazy dog", 20),
-		scaled(1, img(load("res://tex/animals/owl.png"))),
-		scaled(1, img(load("res://tex/animals/bee.png"))),
-		scaled(1, img(load("res://tex/animals/pufferfish.png")))
-	]).exec()
-	
-	#return scaled(6, rotated(245, chained_img(
-		#[
-			#load("res://tex/animals/croc.png"),
-			#load("res://tex/animals/bee.png"),
-			#load("res://tex/animals/owl.png")
-		#],
-		#decorated([
-			#bordered(Color(1, 0, 0, 0.5), -2)
-		#]),
-		#Pos.TOP_LEFT,
-		#Dir.LEFT
-	#))).exec()
-
 static func cornered(color:Color, width:int, length:int, rq_gu:Fn = null):
 	var rq_cornered = FnGuCornered.new()
 	rq_cornered.color = color
