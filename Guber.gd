@@ -2,10 +2,9 @@ extends Node2D
 
 class_name Guber
 
-var bounds:Rect2 # need to abs() before merging
+@export var bounds:Rect2 # need to abs() before merging
 
 func place(ch:Guber, pos_abs = Vector2(0,0), dir = Vector2(1,1)):
-	
 	add_child(ch)
 	ch.position = pos_abs - ch.bounds.position
 	ch.position += ch.bounds.size * (dir - Vector2(1,1)) * Vector2(0.5, 0.5)
@@ -18,6 +17,10 @@ func place(ch:Guber, pos_abs = Vector2(0,0), dir = Vector2(1,1)):
 		bounds = bounds.merge(rect_ch)
 		
 	return rect_ch
+	
+func place_rel(ch:Guber, pos = Pos.MIDDLE, dir = Dir.NONE, offset = Vector2()):
+	var pos_dest = bounds.position + bounds.size * pos + offset
+	place(ch, pos_dest, dir)
 
 func pad(left = 0, right = 0, top = 0, bottom = 0):
 	bounds = bounds.grow_individual(left, top, right, bottom)
@@ -28,6 +31,17 @@ func scale_by(ratio:Vector2):
 	
 	bounds.position *= ratio
 	bounds.size *= ratio
+
+func to_rq():
+	var ps_gu = PackedScene.new()
+	for ch in get_children():
+		ch.propagate_call("set_owner", [self])
+	ps_gu.pack(self)
+	
+	var rq_gu = FnGuFromPs.new()
+	rq_gu.ps_gu = ps_gu
+	
+	return rq_gu
 
 #func placeStr(txt):
 #	var font = DynamicFont.new()
