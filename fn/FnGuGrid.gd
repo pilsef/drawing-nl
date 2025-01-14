@@ -14,7 +14,7 @@ class_name FnGuGrid
 	#scaled(2, img(load("res://tex/animals/owl.png"))),
 	#scaled(2, img(load("res://tex/animals/bee.png"))),
 	#scaled(3, img(load("res://tex/animals/pufferfish.png"))),
-	#textd("Hello world!"),
+	#rotated(15, textd("Hello world!")),
 	#textd_multiline("The quick brown fox jumps over the lazy dog", 20),
 	#scaled(1, img(load("res://tex/animals/owl.png"))),
 	#scaled(1, img(load("res://tex/animals/bee.png"))),
@@ -128,12 +128,13 @@ func generate_arr_rq_cells(mx_gus, mx_dim, num_rows, num_cols):
 			var gu = mx_gus[idx_row][idx_col]
 			if gu == null:
 				continue
+				
+			var rq_gu = gu.to_rq()
+			gu.queue_free()
 			
-			var gu_cell = box(Color(0,0,0,0), mx_dim[idx_row][idx_col]).exec()
-			gu_cell.place_rel(gu, pos, dir)
-			
-			var rq_gu_cell = gu_cell.to_rq()
-			gu_cell.queue_free()
+			var rq_gu_cell = embedded(
+				Color(0,0,0,0), mx_dim[idx_row][idx_col], pos, dir, Vector2(), rq_gu
+			)
 			
 			#arr_rq_cells.append(bordered(Color.RED, 1, rq_gu_cell))
 			arr_rq_cells.append(rq_gu_cell)
