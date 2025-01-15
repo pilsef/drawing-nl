@@ -7,20 +7,13 @@ class_name FnGuCharacterSelection
 
 func exec():
 
-	var path = get_script().resource_path.get_base_dir()
-	
-	var arr_characters = LoadUtil.load_resources_at(path + "/rs-character/")
-	var func_character_to_rq = func(rs_character): 
-		return get_rq_animal(rs_character, rs_character_selected)
-	
-	var arr_rq_animals = arr_characters.map(func_character_to_rq)
-	var rq_animals = gridded(arr_rq_animals, 5)
+	var rq_grid_characters = get_rq_grid_characters()
 	
 	var rq_portrait = FnGuCharacterPortrait.new()
 	rq_portrait.rs_character = rs_character_selected
 
 	var rq_content_lower = chained_c(
-		[rq_animals, rq_portrait],
+		[rq_grid_characters, rq_portrait],
 		Dir.RIGHT, Vector2(20,0)
 	)
 	
@@ -39,7 +32,17 @@ func exec():
 		rq_content
 	).exec()
 
-static func get_rq_animal(rs_character, rs_character_selected):
+func get_rq_grid_characters():
+	var path = get_script().resource_path.get_base_dir()
+	var arr_characters = LoadUtil.load_resources_at(path + "/rs-character/")
+	
+	var func_character_to_rq = func(rs_character): 
+		return get_rq_character(rs_character, rs_character_selected)
+	
+	var arr_rq_animals = arr_characters.map(func_character_to_rq)
+	return gridded(arr_rq_animals, 5)
+
+static func get_rq_character(rs_character, rs_character_selected):
 	var rq_animal = FnGuCharacter.new()
 	rq_animal.rs_character = rs_character
 	rq_animal.is_selected = (rs_character == rs_character_selected)
