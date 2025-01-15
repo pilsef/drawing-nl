@@ -3,7 +3,8 @@ extends FnGu
 class_name FnGuRotatedSprites
 
 func exec():
-	return scaled(4, rotated(245, chained_img(
+	
+	var rq_diag_sprites = chained_img(
 		[
 			load("res://tex/animals/croc.png"),
 			load("res://tex/animals/bee.png"),
@@ -14,4 +15,13 @@ func exec():
 		]),
 		Pos.TOP_LEFT,
 		Dir.LEFT
-	))).exec()
+	)
+	
+	return decorated(
+		[
+			bordered(Color.BLACK, 4),
+			rotated(245),
+			scaled(4)
+		], 
+		rq_diag_sprites
+	).exec()
