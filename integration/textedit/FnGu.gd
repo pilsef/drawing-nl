@@ -12,5 +12,5 @@ func exec():
 			rotated(-15),
 			backgrounded(color_bg)
 		],
-		textd_multiline(string + "", 40)
+		textd_multiline(string + "|", 40)
 	).exec()
