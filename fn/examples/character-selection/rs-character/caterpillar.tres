@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RsCharacter" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://fn/examples/character-selection/RsCharacter.gd" id="1_o6hwq"]
+[ext_resource type="Texture2D" path="res://tex/animals/caterpillar.png" id="2_4p0x8"]
+
+[resource]
+script = ExtResource("1_o6hwq")
+tex = ExtResource("2_4p0x8")
+name = "Caterpillar"
