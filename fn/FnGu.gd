@@ -76,6 +76,13 @@ static func gridded(
 	rq_grid.dir_2d = dir_2d
 	return rq_grid
 
+static func chained_c(arr_rq_gu:Array[Fn], dir = Dir.DOWN, offset = Vector2()):
+	var rq_chained_c = FnGuChainCentered.new()
+	rq_chained_c.arr_rq_gu = arr_rq_gu
+	rq_chained_c.dir = dir
+	rq_chained_c.offset = offset
+	return rq_chained_c
+
 static func chained_rq(
 	arr_rq_gu:Array, pos = Pos.BOTTOM_LEFT, dir = Dir.DOWN_RIGHT, offset = Vector2()
 ):

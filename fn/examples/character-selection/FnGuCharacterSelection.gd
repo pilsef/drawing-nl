@@ -19,16 +19,16 @@ func exec():
 	var rq_portrait = FnGuCharacterPortrait.new()
 	rq_portrait.rs_character = rs_character_selected
 
-	var rq_content_lower = chained_rq(
-		[rq_animals, space_h(20), rq_portrait],
-		Pos.RIGHT_MIDDLE, Dir.RIGHT
+	var rq_content_lower = chained_c(
+		[rq_animals, rq_portrait],
+		Dir.RIGHT, Vector2(20,0)
 	)
 	
 	var rq_content_upper = scaled(1.5, textd("CHOOSE YOUR CHARACTER!"))
 
-	var rq_content = chained_rq(
+	var rq_content = chained_c(
 		[rq_content_upper, rq_content_lower],
-		Pos.BOTTOM_MIDDLE, Dir.DOWN, Vector2.DOWN * 10
+		Dir.DOWN, Vector2(0, 10)
 	)
 
 	return decorated(
