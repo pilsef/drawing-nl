@@ -10,7 +10,9 @@ func exec():
 	
 	var gu = Guber.new()
 	gu.place(gu_base, -gu_base.bounds.size * 0.5)
-	
 	gu.rotate_by(amt)
 	
-	return gu
+	var gu_new = Guber.new()
+	gu_new.place(gu)
+	
+	return gu_new
