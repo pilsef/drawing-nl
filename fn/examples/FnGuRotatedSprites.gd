@@ -4,15 +4,17 @@ class_name FnGuRotatedSprites
 
 func exec():
 	
-	var rq_diag_sprites = chained_img(
+	var rq_characters = map_img(
 		[
 			load("res://tex/animals/croc.png"),
 			load("res://tex/animals/bee.png"),
 			load("res://tex/animals/owl.png")
 		],
-		decorated([
-			bordered(Color(1, 0, 0, 0.5), -2)
-		]),
+		[bordered(Color(1, 0, 0, 0.5), -2)]
+	)
+	
+	var rq_diag_sprites = chained(
+		rq_characters,
 		Pos.TOP_LEFT,
 		Dir.LEFT
 	)

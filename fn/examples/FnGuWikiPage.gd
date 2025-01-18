@@ -13,7 +13,7 @@ class_name FnGuWikiPage
 
 func exec():
 
-	var top_block = chained_rq(
+	var top_block = chained(
 		[
 			scaled(2.5, textd("Yesterday")),
 			space_v(20),
@@ -33,7 +33,7 @@ func exec():
 		], img(tex_img)
 	)
 	
-	var rq_description = chained_rq(
+	var rq_description = chained(
 		[
 			scaled(2, textd(str_name)),
 			space_v(10),
@@ -44,7 +44,7 @@ func exec():
 	)
 	rq_description = tinted(Color.BLACK, rq_description)
 	
-	var rq_content = chained_rq(
+	var rq_content = chained(
 		[
 			top_block,
 			space_v(20),

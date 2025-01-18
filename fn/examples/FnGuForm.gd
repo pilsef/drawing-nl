@@ -16,7 +16,7 @@ func exec():
 			box(Color.GHOST_WHITE, Vector2(250, 32))
 		)
 	
-	var rq_textfields = chained_rq(
+	var rq_textfields = chained(
 		[
 			make_rq_textfield.call("First Name"),
 			make_rq_textfield.call("Last Name"),
@@ -34,7 +34,7 @@ func exec():
 		scaled(2, textd("Sign Up"))
 	)
 	
-	var rq_content = chained_rq(
+	var rq_content = chained(
 		[rq_textfields, space_v(40), rq_button],
 		Pos.BOTTOM_MIDDLE, Dir.DOWN
 	)

@@ -59,6 +59,18 @@ static func padgrounded(
 		], rq_gu
 	)
 
+static func map(arr_tex, func_baselem_to_rq_gu, arr_rq_hierarchy):
+	return arr_tex.map(
+		func(tex):
+			return decorated(arr_rq_hierarchy, func_baselem_to_rq_gu.call(tex))
+	)
+
+static func map_img(arr_tex, arr_rq_hierarchy):
+	return map(arr_tex, img, arr_rq_hierarchy)
+
+static func map_textd(arr_str, arr_rq_hierarchy):
+	return map(arr_str, textd, arr_rq_hierarchy)
+
 # top to bottom
 static func decorated(arr_rq_hierarchy:Array, rq_gu:Fn = null):
 	var rq_decorated = FnGuDecorated.new()
@@ -83,82 +95,30 @@ static func chained_c(arr_rq_gu:Array[Fn], dir = Dir.DOWN, offset = Vector2()):
 	rq_chained_c.offset = offset
 	return rq_chained_c
 
-static func chained_rq(
-	arr_rq_gu:Array, pos = Pos.BOTTOM_LEFT, dir = Dir.DOWN_RIGHT, offset = Vector2()
-):
-	return chained(arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), pos, dir, offset)
-	
-static func chained_img(
-	arr_tex:Array, rq_decorated_unbound:Fn, 
-	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT, offset = Vector2()
-):
-	return chained(arr_tex, FnGuFromTex, rq_decorated_unbound, pos, dir, offset)
-	
-static func chained_text(
-	arr_text:Array, rq_decorated_unbound:Fn,
-	pos = Pos.BOTTOM_LEFT, dir = Dir.DOWN_RIGHT, offset = Vector2()
-):
-	return chained(arr_text, FnGuFromTextd, rq_decorated_unbound, pos, dir, offset)
-
 static func chained(
-	arr_baselem:Array, fn_gu_from_baselem, rq_decorated_unbound:Fn, 
-	pos = Pos.TOP_RIGHT, dir = Dir.DOWN_RIGHT, offset = Vector2()
+	arr_rq_gu:Array, pos = Pos.BOTTOM_LEFT, dir = Dir.DOWN_RIGHT, offset = Vector2()
 ) -> Fn:
-	var rq_chain = FnGuChainDecorated.new()
-	rq_chain.arr_baselem = arr_baselem
-	rq_chain.fn_gu_from_baselem = fn_gu_from_baselem
-	rq_chain.rq_decorated_unbound = rq_decorated_unbound
-	rq_chain.pos = pos
-	rq_chain.dir = dir
+	var rq_chain = FnGuChain.new()
+	rq_chain.arr_rq_gu = arr_rq_gu
+	rq_chain.pos_next_rel = pos
+	rq_chain.dir_next = dir
 	rq_chain.offset = offset
 
 	return rq_chain
-	
-static func chained_rq_2d(
-	arr_rq_gu:Array, breadth_1d = 3,
-	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
-	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
-):
-	return chained_2d(
-		arr_rq_gu, FnGuFromRq, FnGuFromRq.new(), breadth_1d,
-		pos_1d, dir_1d, pos_2d, dir_2d
-	)
-	
-static func chained_img_2d(
-	arr_rq_tex:Array, rq_decorated_unbound:Fn, breadth_1d = 3, 
-	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
-	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
-):
-	return chained_2d(
-		arr_rq_tex, FnGuFromTex, rq_decorated_unbound, breadth_1d,
-		pos_1d, dir_1d, pos_2d, dir_2d
-	)
-	
-static func chained_text_2d(
-	arr_rq_text:Array, rq_decorated_unbound:Fn, breadth_1d = 3, 
-	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
-	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
-):
-	return chained_2d(
-		arr_rq_text, FnGuFromTextd, rq_decorated_unbound, breadth_1d,
-		pos_1d, dir_1d, pos_2d, dir_2d
-	)
 
 static func chained_2d(
-	arr_baselem:Array, fn_gu_from_baselem, rq_decorated_unbound:Fn, breadth_1d = 3, 
+	arr_rq_gu:Array, breadth_1d = 3, 
 	pos_1d = Pos.TOP_RIGHT, dir_1d = Dir.DOWN_RIGHT, 
 	pos_2d = Pos.BOTTOM_LEFT, dir_2d = Dir.DOWN_RIGHT
 ) -> Fn:
 
-	var rq_chain_2d = FnGuChain2dDecorated.new()
-	rq_chain_2d.arr_baselem = arr_baselem
-	rq_chain_2d.fn_gu_from_baselem = fn_gu_from_baselem
-	rq_chain_2d.rq_decorated_unbound = rq_decorated_unbound
+	var rq_chain_2d = FnGuChain2d.new()
+	rq_chain_2d.arr_rq_gu = arr_rq_gu
 	rq_chain_2d.breadth_1d = breadth_1d
-	rq_chain_2d.pos_1d = pos_1d
-	rq_chain_2d.dir_1d = dir_1d
-	rq_chain_2d.pos_2d = pos_2d
-	rq_chain_2d.dir_2d = dir_2d
+	rq_chain_2d.pos_1d_next_rel = pos_1d
+	rq_chain_2d.dir_1d_next = dir_1d
+	rq_chain_2d.pos_2d_next_rel = pos_2d
+	rq_chain_2d.dir_2d_next = dir_2d
 
 	return rq_chain_2d
 	

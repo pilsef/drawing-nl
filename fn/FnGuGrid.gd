@@ -126,8 +126,8 @@ func generate_arr_rq_cells(mx_gus, mx_dim, num_rows, num_cols):
 				mx_dim[idx_row][idx_col], pos, dir, Vector2(), rq_gu
 			)
 			
-			#arr_rq_cells.append(bordered(Color.RED, 1, rq_gu_cell))
-			arr_rq_cells.append(rq_gu_cell)
+			arr_rq_cells.append(bordered(Color.GREEN, 1, rq_gu_cell))
+			#arr_rq_cells.append(rq_gu_cell)
 
 	return arr_rq_cells
 

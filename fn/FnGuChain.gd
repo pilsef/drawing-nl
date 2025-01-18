@@ -6,7 +6,7 @@ class_name FnGuChain
 @export var dir_next = Dir.DOWN_RIGHT
 @export var offset = Vector2()
 
-@export var arr_rq_gu : Array[Fn]
+@export var arr_rq_gu = []
 
 func exec():
 	

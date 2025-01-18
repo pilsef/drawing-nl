@@ -3,7 +3,7 @@ extends FnGu
 class_name FnGuShowcase
 
 func exec():
-	return gridded([
+	var arr_rq_base = [
 		scaled(0.5, FnGuRpgTextBox.new()),
 		scaled(0.5, FnGuCharacterSelection.new()),
 		scaled(3, img(load("res://tex/animals/croc.png"))),
@@ -13,4 +13,12 @@ func exec():
 		scaled(0.5, FnGuWikiPage.new()),
 		tinted(Color.RED, img(load("res://tex/icon.png"))),
 		rotated(15, FnGuHelloWorld.new())
-	], 4).exec()
+		#FnGuMenu.new()
+	]
+	
+	var arr_rq = arr_rq_base.map(
+		func(rq_base):
+			return bordered(Color.RED, 2, rq_base)
+	)
+	
+	return gridded(arr_rq, 4).exec()
