@@ -189,6 +189,18 @@ static func padded_h(left, right, rq_gu:Fn = null):
 static func padded_v(top, bottom, rq_gu:Fn = null):
 	return padded(0, 0, top, bottom, rq_gu)
 
+static func sized_c(size, rq_gu:Fn = null) -> Fn:
+	return sized(size, Pos.MIDDLE, Dir.NONE, Vector2(), rq_gu)
+	
+static func sized(size, pos, dir, offset, rq_gu) -> Fn:
+	var rq_gu_sized = FnGuSized.new()
+	rq_gu_sized.size = size
+	rq_gu_sized.rq_gu = rq_gu
+	rq_gu_sized.pos = pos
+	rq_gu_sized.dir = dir
+	rq_gu_sized.offset = offset
+	return rq_gu_sized
+
 static func scaled(scale, rq_gu:Fn = null) -> Fn:
 	var rq_gu_scaled = FnGuScaled.new()
 	rq_gu_scaled.scale = scale

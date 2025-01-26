@@ -12,8 +12,9 @@ func exec():
 		scaled(0.5, FnGuForm.new()),
 		scaled(0.5, FnGuWikiPage.new()),
 		tinted(Color.RED, img(load("res://tex/icon.png"))),
-		rotated(15, FnGuHelloWorld.new())
-		#FnGuMenu.new()
+		rotated(15, FnGuHelloWorld.new()),
+		#FnGuMenu.new(),
+		sized_c(Vector2(200,100), img(load("res://tex/animals/dall-sheep.png")))
 	]
 	
 	var arr_rq = arr_rq_base.map(

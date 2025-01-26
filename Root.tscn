@@ -1,11 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsrjwy4mgqm0f"]
 
 [ext_resource type="Script" path="res://Boot.gd" id="1_i05s4"]
-[ext_resource type="Script" path="res://fn/examples/FnGuShowcase.gd" id="2_b8o3y"]
+[ext_resource type="Script" path="res://fn/examples/FnGuShowcase.gd" id="2_yv7dr"]
 
-[sub_resource type="Resource" id="Resource_egup7"]
-script = ExtResource("2_b8o3y")
+[sub_resource type="Resource" id="Resource_c5ip2"]
+script = ExtResource("2_yv7dr")
 
 [node name="Root" type="Node2D"]
 script = ExtResource("1_i05s4")
-rq_gu_root = SubResource("Resource_egup7")
+rq_gu_root = SubResource("Resource_c5ip2")
