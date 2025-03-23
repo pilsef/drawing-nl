@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RsCharacter" load_steps=3 format=3 uid="uid://cbqm8me5j5ro"]
 
-[ext_resource type="Script" path="res://fn/examples/character-selection/RsCharacter.gd" id="1_qcf46"]
+[ext_resource type="Script" uid="uid://1urncycgnkys" path="res://fn/examples/character-selection/RsCharacter.gd" id="1_qcf46"]
 [ext_resource type="Texture2D" uid="uid://ckpu3yvvwhk67" path="res://tex/animals/polar-bear.png" id="2_pgl5r"]
 
 [resource]

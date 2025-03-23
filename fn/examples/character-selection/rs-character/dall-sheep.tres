@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RsCharacter" load_steps=3 format=3 uid="uid://d1jwtwbp5dx1a"]
 
-[ext_resource type="Script" path="res://fn/examples/character-selection/RsCharacter.gd" id="1_nysqu"]
+[ext_resource type="Script" uid="uid://1urncycgnkys" path="res://fn/examples/character-selection/RsCharacter.gd" id="1_nysqu"]
 [ext_resource type="Texture2D" uid="uid://dyik8ge6jgum3" path="res://tex/animals/dall-sheep.png" id="2_e5kbe"]
 
 [resource]

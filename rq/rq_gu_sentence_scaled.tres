@@ -1,15 +1,13 @@
-[gd_resource type="Resource" load_steps=5 format=2]
+[gd_resource type="Resource" script_class="FnGuScaled" load_steps=4 format=3 uid="uid://ckhivwms8fwo7"]
 
-[ext_resource type="Script" path="res://fn/FnGuFromText.gd" id="1"]
-[ext_resource type="Script" path="res://fn/FnGuScaled.gd" id="2"]
-[ext_resource type="Resource" path="res://rq/rq_fontdict_from_tex_pico.tres" id="3"]
+[ext_resource type="Script" uid="uid://52ub0txvm28u" path="res://fn/FnGuFromText.gd" id="1"]
+[ext_resource type="Script" uid="uid://du82r3fiut0ss" path="res://fn/FnGuScaled.gd" id="2"]
 
-[sub_resource type="Resource" id=1]
-script = ExtResource( 1 )
-rq_dict_atlas = ExtResource( 3 )
-iterable_wrapper = [ "The quick brown fox" ]
+[sub_resource type="Resource" id="1"]
+script = ExtResource("1")
+txt = "default text"
 
 [resource]
-script = ExtResource( 2 )
-scale = 2
-rq_gu = SubResource( 1 )
+script = ExtResource("2")
+scale = 2.0
+rq_gu = SubResource("1")

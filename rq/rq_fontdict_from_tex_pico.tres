@@ -1,10 +1,10 @@
-[gd_resource type="Resource" load_steps=3 format=2]
+[gd_resource type="Resource" script_class="FnFontdictFromTex" load_steps=3 format=3 uid="uid://b7xqpxcingwvn"]
 
-[ext_resource type="Script" path="res://fn/FnFontdictFromTex.gd" id="1"]
+[ext_resource type="Script" uid="uid://ci2jxm8i6woj6" path="res://fn/FnFontdictFromTex.gd" id="1"]
 [ext_resource type="Texture2D" uid="uid://dtjlmp7q6fe2f" path="res://tex/font-pico.png" id="2"]
 
 [resource]
-script = ExtResource( 1 )
-iterable_wrapper = [ " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~" ]
-size_cell = Vector2( 8, 8 )
-tex = ExtResource( 2 )
+script = ExtResource("1")
+string_chars = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"
+size_cell = Vector2(8, 8)
+tex = ExtResource("2")

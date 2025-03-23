@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="FnGuPadded" load_steps=7 format=3 uid="uid://ohhyy4e0uq5a"]
 
-[ext_resource type="Script" path="res://fn/FnGuPadded.gd" id="1"]
-[ext_resource type="Script" path="res://fn/FnGuBackgrounded.gd" id="2"]
-[ext_resource type="Script" path="res://fn/FnGuFromColor.gd" id="3"]
+[ext_resource type="Script" uid="uid://chhrp0hl8ecns" path="res://fn/FnGuPadded.gd" id="1"]
+[ext_resource type="Script" uid="uid://du8i5s2ns0hlw" path="res://fn/FnGuBackgrounded.gd" id="2"]
+[ext_resource type="Script" uid="uid://dela2lywokyck" path="res://fn/FnGuFromColor.gd" id="3"]
 
 [sub_resource type="Resource" id="1"]
 script = ExtResource("3")

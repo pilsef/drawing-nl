@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="RsCharacter" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="RsCharacter" load_steps=3 format=3 uid="uid://dogc3ro4njg0e"]
 
-[ext_resource type="Script" path="res://fn/examples/character-selection/RsCharacter.gd" id="1_bskc7"]
-[ext_resource type="Texture2D" path="res://tex/animals/dragon.png" id="2_t5cev"]
+[ext_resource type="Script" uid="uid://1urncycgnkys" path="res://fn/examples/character-selection/RsCharacter.gd" id="1_bskc7"]
+[ext_resource type="Texture2D" uid="uid://dy8wumekn3wxn" path="res://tex/animals/dragon.png" id="2_t5cev"]
 
 [resource]
 script = ExtResource("1_bskc7")
