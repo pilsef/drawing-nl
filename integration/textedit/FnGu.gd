@@ -1,7 +1,7 @@
 extends FnGu
 
 var string
-var show_cursor = true
+var cursor_visible = true
 
 var color_bg = Color.WHITE
 var color_border = Color.BLACK
@@ -9,7 +9,7 @@ var color_text = Color.BLACK
 
 func exec():
 	
-	var cursor = "|" if show_cursor else " "; # note: non-breaking space
+	var cursor = "|" if cursor_visible else " "; # note: non-breaking space
 	
 	return decorated(
 		[

@@ -18,7 +18,9 @@ func map_data_to_iact():
 	print("implement me!")
 	
 func map_iact_to_rq_gu(rq_gu):
-	print("implement me!")
+	for prop in iact.get_property_list():
+		if (prop.usage & PROPERTY_USAGE_SCRIPT_VARIABLE) && prop.name in rq_gu:
+			rq_gu.set(prop.name, iact[prop.name])
 	
 func get_script_base_dir():
 	return get_script().get_path().get_base_dir()
