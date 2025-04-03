@@ -7,3 +7,4 @@ func map_data_to_iact():
 	
 func map_iact_to_rq_gu(rq_gu):
 	rq_gu.string = iact.string
+	rq_gu.show_cursor = iact.cursor_visible

@@ -3,7 +3,7 @@ extends FnGu
 class_name FnGuCharacterSelection
 
 #@export var tex_animal_selected = preload("res://tex/animals/pelican.png")
-@export var rs_character_selected = preload("rs-character/pelican.tres")
+@export var rs_character_selected = preload("res://db/rs-character/pelican.tres")
 
 func exec():
 
@@ -33,8 +33,7 @@ func exec():
 	).exec()
 
 func get_rq_grid_characters():
-	var path = get_script().resource_path.get_base_dir()
-	var arr_characters = LoadUtil.load_resources_at(path + "/rs-character/")
+	var arr_characters = LoadUtil.load_resources_at("res://db/rs-character/")
 	
 	var func_character_to_rq = func(rs_character): 
 		return get_rq_character(rs_character, rs_character_selected)

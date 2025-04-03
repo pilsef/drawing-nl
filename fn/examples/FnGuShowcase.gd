@@ -22,4 +22,6 @@ func exec():
 			return bordered(Color.RED, 2, rq_base)
 	)
 	
-	return gridded(arr_rq, 4).exec()
+	var rq_grid = gridded(arr_rq, 4);
+	
+	return backgrounded(Color(0.2,0.2,0.2), rq_grid).exec()

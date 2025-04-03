@@ -33,8 +33,9 @@ func re_add_gu():
 	gu = rq_gu.exec()
 	
 	add_child(gu)
-	gu.position -= gu.bounds.position
-	set_window(gu.bounds.size.ceil())
+	center()
+	#gu.position -= gu.bounds.position
+	#set_window(gu.bounds.size.ceil())
 
 func set_window(size:Vector2):
 
@@ -45,3 +46,44 @@ func set_window(size:Vector2):
 	window.size = size * window.content_scale_factor
 		
 	window.position = 0.5 * (DisplayServer.screen_get_size() - Vector2i(window.size))
+	
+func center():
+	
+	# make window fill whole screen
+	var window = get_window()
+	window.content_scale_factor = DisplayServer.screen_get_scale()
+	window.size = DisplayServer.screen_get_usable_rect().size
+	window.position = Vector2(0,0)
+	
+	# center gu
+	gu.position -= gu.bounds.position
+	gu.position -= gu.bounds.size * 0.5
+	gu.position += window.size * 0.5 / window.content_scale_factor
+	
+	# set clickable polygon
+	var xx = gu.bounds.size.x
+	var yy = gu.bounds.size.y
+	window.mouse_passthrough_polygon = [
+		(gu.position + gu.bounds.position + Vector2(0,0)) * window.content_scale_factor,
+		(gu.position + gu.bounds.position + Vector2(xx, 0)) * window.content_scale_factor,
+		(gu.position + gu.bounds.position + Vector2(xx, yy)) * window.content_scale_factor,
+		(gu.position + gu.bounds.position + Vector2(0, yy)) * window.content_scale_factor
+	]
+	
+	#var p = Polygon2D.new()
+	#p.color = Color(1, 0.4, 0.7, 0.5)
+	#p.polygon = [
+		#(gu.position + gu.bounds.position + Vector2(0,0)),
+		#(gu.position + gu.bounds.position + Vector2(xx, 0)),
+		#(gu.position + gu.bounds.position + Vector2(xx, yy)),
+		#(gu.position + gu.bounds.position + Vector2(0, yy))
+	#]
+	#add_child(p)
+	#
+	#gu.tree_exited.connect(func(): 
+		#p.queue_free()
+		#remove_child(p)
+	#)
+	
+	
+	
