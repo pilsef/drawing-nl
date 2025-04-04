@@ -18,10 +18,9 @@ func _process(delta: float) -> void:
 
 func _input(ev: InputEvent) -> void:
 	if ev is InputEventKey && ev.is_pressed():
-		var string_old = string
 		var string_new = apply_keypress_to_string(ev)
 		
-		if string_old != string_new:
+		if string != string_new:
 			time_cursor_flip = Time.get_ticks_msec() + cursor_linger_time
 			set_param("string", string_new)
 			set_param("cursor_visible", true)
