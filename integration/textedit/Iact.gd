@@ -1,12 +1,12 @@
 extends IactBase
 
 const UNICODE_LF = char(10)
+const cursor_linger_time = 600
+
+var time_cursor_flip = 0
 
 var string
 var cursor_visible = true
-var time_cursor_flip = 0
-
-const cursor_linger_time = 600
 
 func _ready():
 	time_cursor_flip = Time.get_ticks_msec() + cursor_linger_time
@@ -22,8 +22,8 @@ func _input(ev: InputEvent) -> void:
 		var string_new = apply_keypress_to_string(ev)
 		
 		if string_old != string_new:
-			set_param("string", string_new)
 			time_cursor_flip = Time.get_ticks_msec() + cursor_linger_time
+			set_param("string", string_new)
 			set_param("cursor_visible", true)
 
 func apply_keypress_to_string(ev:InputEventKey):
