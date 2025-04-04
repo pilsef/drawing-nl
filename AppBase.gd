@@ -8,14 +8,22 @@ var gu:Guber
 func _ready():
 
 	iact = load(get_script_base_dir() + "/Iact.gd").new()
-	map_data_to_iact()
+	ld()
 	add_child(iact)
 	
-	iact.connect("changed", re_add_gu)
-	re_add_gu()
+	iact.connect("changed", on_changed)
+	on_changed()
 	
-func map_data_to_iact():
+func ld():
 	print("implement me!")
+	
+func sv():
+	print("implement me!")
+
+func save_self():
+	var ps = PackedScene.new()
+	ps.pack(self)
+	ResourceSaver.save(ps, scene_file_path)
 	
 func map_iact_to_rq_gu(rq_gu):
 	for prop in iact.get_property_list():
@@ -25,21 +33,23 @@ func map_iact_to_rq_gu(rq_gu):
 func get_script_base_dir():
 	return get_script().get_path().get_base_dir()
 		
-func re_add_gu():
+func on_changed():
+	#sv()
+	
 	if gu != null:
 		gu.queue_free()
 		remove_child(gu)
 	
 	var rq_gu = load(get_script_base_dir() + "/FnGu.gd").new()
 	map_iact_to_rq_gu(rq_gu)
-	gu = rq_gu.exec()
 	
+	gu = rq_gu.exec()
 	add_child(gu)
-	center()
-	#gu.position -= gu.bounds.position
-	#set_window(gu.bounds.size.ceil())
+	set_window_full(gu)
 
-func set_window(size:Vector2):
+func set_window_cropped(gu:Guber):
+	gu.position -= gu.bounds.position
+	var size = gu.bounds.size.ceil()
 
 	var window = get_window()
 	window.min_size = Vector2(1,1)
@@ -49,7 +59,7 @@ func set_window(size:Vector2):
 		
 	window.position = 0.5 * (DisplayServer.screen_get_size() - Vector2i(window.size))
 	
-func center():
+func set_window_full(gu:Guber):
 	
 	# make window fill whole screen
 	var window = get_window()
