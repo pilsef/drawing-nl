@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://db0rm1mvi2go4"]
-
-[ext_resource type="Script" uid="uid://cvume2l834chq" path="res://apps/textedit/Orch.gd" id="1_ovt1h"]
-
-[node name="Orchestrator" type="Node"]
-script = ExtResource("1_ovt1h")

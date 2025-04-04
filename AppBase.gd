@@ -1,6 +1,6 @@
 extends Node
 
-class_name OrchBase
+class_name AppBase
 
 var iact:IactBase
 var gu:Guber

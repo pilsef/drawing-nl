@@ -1,4 +1,4 @@
-extends OrchBase
+extends AppBase
 
 @export var data_string = ""
 
