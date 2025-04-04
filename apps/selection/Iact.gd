@@ -6,11 +6,7 @@ var idx_selected = 0
 var arr_characters : Array
 var num_cols = 4
 
-func _input(ev: InputEvent) -> void:
-	if ev is InputEventKey && ev.is_pressed():
-		apply_keypress(ev)
-
-func apply_keypress(ev:InputEventKey):
+func on_key_press(ev:InputEventKey):
 	if ev.keycode == KEY_RIGHT:
 		shift_cursor(Vector2i.RIGHT)
 	elif ev.keycode == KEY_LEFT:

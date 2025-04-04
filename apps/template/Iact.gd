@@ -1,5 +1,7 @@
 extends IactBase
 
-#func _input(ev: InputEvent) -> void:
-	#if ev is InputEventKey && ev.is_pressed():
-		#set_param("some_param", "some value")
+#func on_key_press(ev: InputEventKey):
+	#set_param("some_param", "some value")
+
+#func on_key_release(ev: InputEventKey):
+	#set_param("some_param", "some value")

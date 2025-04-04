@@ -11,7 +11,7 @@ func _ready():
 	ld()
 	add_child(iact)
 	
-	iact.connect("changed", on_changed)
+	iact.changed.connect(on_changed)
 	on_changed()
 	
 func ld():
