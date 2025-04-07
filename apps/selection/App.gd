@@ -1,6 +1,7 @@
 extends AppBase
 
-#@export var dummy = 0
+var num_cols = 3
 
 func ld():
-	iact.arr_characters = LoadUtil.load_resources_at("res://db/rs-character/")
+	var arr = LoadUtil.load_resources_at("res://db/rs-character/")
+	iact.cursor = CursorGrid.new(arr, num_cols, 15)
