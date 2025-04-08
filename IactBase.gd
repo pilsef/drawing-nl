@@ -8,6 +8,9 @@ func set_param(property, value):
 	set(property, value)
 	changed.emit()
 
+func change(ignore):
+	changed.emit()
+
 func _input(ev: InputEvent) -> void:
 	if ev is InputEventKey:
 		if ev.is_pressed():
