@@ -82,13 +82,16 @@ func set_window_full(gu:Guber):
 		(gu.position + gu.bounds.position + Vector2(0, yy)) * window.content_scale_factor
 	]
 	
-	#var p = Polygon2D.new()
-	#p.color = Color(1, 0.4, 0.7, 0.5)
-	#p.polygon = [
+	#var p = Line2D.new()
+	#p.default_color = Color(1, 0.4, 0.7, 0.5)
+	#p.begin_cap_mode = Line2D.LINE_CAP_BOX
+	#p.end_cap_mode = Line2D.LINE_CAP_BOX
+	#p.points = [
 		#(gu.position + gu.bounds.position + Vector2(0,0)),
 		#(gu.position + gu.bounds.position + Vector2(xx, 0)),
 		#(gu.position + gu.bounds.position + Vector2(xx, yy)),
-		#(gu.position + gu.bounds.position + Vector2(0, yy))
+		#(gu.position + gu.bounds.position + Vector2(0, yy)),
+		#(gu.position + gu.bounds.position + Vector2(0,0))
 	#]
 	#add_child(p)
 	#

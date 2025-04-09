@@ -20,7 +20,10 @@ func place(ch:Guber, pos_abs = Vector2(0,0), dir = Vector2(1,1)):
 	
 func place_rel(ch:Guber, pos = Pos.MIDDLE, dir = Dir.NONE, offset = Vector2()):
 	var pos_dest = bounds.position + bounds.size * pos + offset
-	place(ch, pos_dest, dir)
+	return place(ch, pos_dest, dir)
+	
+func get_pt(pos):
+	return position + bounds.position + bounds.size * pos
 
 func pad(left = 0, right = 0, top = 0, bottom = 0):
 	bounds = bounds.grow_individual(left, top, right, bottom)

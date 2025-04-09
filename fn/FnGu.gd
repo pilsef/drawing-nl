@@ -77,7 +77,17 @@ static func decorated(arr_rq_hierarchy:Array, rq_gu:Fn = null):
 	rq_decorated.arr_rq_hierarchy = arr_rq_hierarchy
 	rq_decorated.rq_gu = rq_gu
 	return rq_decorated
-	
+
+static func gridded_2(
+	grid:Node, fn:Callable, dir_1d = Dir.RIGHT, dir_2d = Dir.DOWN
+):
+	var breadth_1d = grid.get_child(0).get_child_count()
+	var arr_rq_children = []
+	for row in grid.get_children():
+		for item in row.get_children():
+			arr_rq_children.append(fn.call(item))
+	return gridded(arr_rq_children, breadth_1d, dir_1d, dir_2d)
+
 static func gridded(
 	arr_rq_gu:Array, breadth_1d = 3, dir_1d = Dir.RIGHT, dir_2d = Dir.DOWN
 ):

@@ -19,22 +19,26 @@ func exec():
 	
 func render(nd):
 	
-	var rq = img(nd.rs.tex)
+	var rq = padded_a(2, img(nd.rs.tex))
 	if nd == cursor.nd:
 		rq = bordered(Color.RED, -2, rq)
 	
-	var rq_hat = box(Color.DARK_RED, Vector2(1, 4))
-	if !nd.is_root():
-		rq = chained([rq, rq_hat], Pos.TOP_MIDDLE, Dir.UP)
+	#var rq_hat = box(Color.DARK_RED, Vector2(1, 4))
+	#if !nd.is_root():
+		#rq = chained([rq, rq_hat], Pos.TOP_MIDDLE, Dir.UP)
 	
 	if !nd.is_leaf():
 		var arr_rq_children = nd.get_children().map(render)
-		var rq_children = chained(arr_rq_children, Pos.RIGHT_MIDDLE, Dir.RIGHT, Vector2(10, 0))
-		rq_children = bordered(Color.DARK_RED, -1, rq_children)
-		rq = chained([rq, rq_hat, rq_children], Pos.BOTTOM_MIDDLE, Dir.DOWN)
+		rq = treed(rq, arr_rq_children)
 	
 	return rq
-	
+
+static func treed(rq_parent, arr_rq_children):
+	var rq_tree = FnGuTree.new()
+	rq_tree.rq_gu_parent = rq_parent
+	rq_tree.arr_rq_gu_children = arr_rq_children
+	return rq_tree
+
 #func render_grid(grid:Node):
 	#var rq_children = gridded_2(grid, render_char)
 	#
